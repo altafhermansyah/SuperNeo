@@ -96,20 +96,100 @@ function updateBudget() {
 
 function analyzeBudget() {
   const makan = parseInt(document.getElementById('sliderMakan').value);
+  const transport = parseInt(document.getElementById('sliderTransport').value);
   const hiburan = parseInt(document.getElementById('sliderHiburan').value);
   const tabungan = parseInt(document.getElementById('sliderTabungan').value);
-  const total = makan + parseInt(document.getElementById('sliderTransport').value) + hiburan + tabungan + parseInt(document.getElementById('sliderLainnya').value);
-  if (total > 50000) {
-    document.getElementById('budgetFeedbackText').textContent = '⚠️ Budgetmu melebihi Rp50.000! Ini pelajaran pertama tentang kelangkaan — sumber daya terbatas!';
-    document.getElementById('budgetFeedback').style.display = 'block';
-    return;
-  }
+  const lainnya = parseInt(document.getElementById('sliderLainnya').value);
+  const total = makan + transport + hiburan + tabungan + lainnya;
+
   let feedback = '';
-  if (tabungan >= 15000) feedback = '🌟 Excellent! Menabung 30%+ itu kebiasaan finansial yang kuat! ';
-  else if (tabungan >= 10000) feedback = '👍 Bagus! Menabung 20% sudah baik. Coba tingkatkan lagi! ';
-  else if (tabungan > 0) feedback = '😊 Lumayan, masih menabung meski sedikit. Setiap rupiah penting! ';
-  else feedback = '⚠️ Kamu tidak menabung! Ingat: menabung bukan soal sisa belanja, tapi belanja dari sisa menabung. ';
-  if (hiburan > 20000) feedback += '🎮 40%+ untuk hiburan — hati-hati dengan hedonic treadmill!';
+
+  // ── CASE 1: Over budget ──
+  if (total > 50000) {
+    const lebih = (total - 50000).toLocaleString('id-ID');
+    feedback = `⚠️ Budgetmu sudah jebol Rp${lebih}! Ini pelajaran pertama tentang kelangkaan di mana sumber daya terbatas, keinginan tidak. Tekan rem dulu sebelum dompet nangis! 💸`;
+
+  // ── CASE 2: Under budget (ada sisa signifikan) ──
+  } else if (total < 40000) {
+    const sisa = (50000 - total).toLocaleString('id-ID');
+    feedback = `🤔 Kamu masih punya sisa Rp${sisa} yang belum dialokasikan! Dalam ekonomi, uang yang "nganggur" tanpa tujuan itu rugi. Mau ditabung, diinvestasikan, atau memang ada kebutuhan lain yang terlupakan?`;
+
+  // ── CASE 3: ALL-IN ke satu kategori ──
+  } else if (makan === 50000) {
+    feedback = `🍔 Seluruh Rp50.000 untuk makan?! Kamu sedang mengalami apa yang ekonom sebut sebagai "utilitas subsistensi" yakni semua sumber daya habis hanya untuk kebutuhan dasar. Gimana kamu ke sekolah? Jalan kaki 20km? 😅`;
+
+  } else if (hiburan === 50000) {
+    feedback = `🎮 YOLO! Rp50.000 all-in untuk hiburan?! Ini namanya "present bias", keadaan dimana otak kamu memprioritaskan kesenangan sekarang vs kebutuhan masa depan. Besok makan angin dulu ya... 💨`;
+
+  } else if (tabungan === 50000) {
+    feedback = `🏦 Woah, 100% menabung?! Kamu calon Warren Buffett Indonesia! Tapi ingat kalau nggak makan dan nggak kemana-mana, ini bukan hemat, ini menyiksa diri. Ekonomi yang sehat butuh keseimbangan konsumsi dan tabungan! ⚖️`;
+
+  } else if (lainnya === 50000) {
+    feedback = `📦 Semua masuk "Lainnya"? Kamu misterius sekali! Dalam perencanaan keuangan, pengeluaran tanpa kategori jelas adalah musuh utama tabungan. Coba breakdown "lainnya" itu, kamu mungkin kaget dengan hasilnya! 🔍`;
+
+  } else if (transport === 50000) {
+    feedback = `🚌 Rp50.000 habis untuk transport?! Sepertinya kamu tinggal di ujung dunia dan kantormu di ujung dunia satunya. Ini saatnya pertimbangkan WFH, sepeda, atau pindah rumah! `;
+
+  // ── CASE 4: Zero tabungan tapi budget seimbang ──
+  } else if (tabungan === 0 && total >= 40000) {
+    if (hiburan > 20000) {
+      feedback = `🎮💸 Nol tabungan + Rp${hiburan.toLocaleString('id-ID')} untuk hiburan? Kamu sedang hidup di mode "YOLO". Satu hari darurat seperti HP rusak, sakit, atau kecelakaan kecil maka keuanganmu langsung chaos. Tabungan darurat adalah sebuah survival kit! 🆘`;
+    } else {
+      feedback = `😬 Tidak ada tabungan sama sekali! Dalam ekonomi ada konsep "consumption smoothing" yaitu menyisihkan sebagian pendapatan sekarang untuk jaga-jaga di masa depan. Coba geser slider tabungan minimal ke Rp5.000 saja dulu!`;
+    }
+
+  // ── CASE 5: Makan sangat tinggi (food-heavy) ──
+  } else if (makan > 25000) {
+    let addOn = '';
+    if (tabungan >= 10000) addOn = ' Untungnya kamu masih menabung dengan baik!';
+    else addOn = ' Coba kurangi sedikit dan alihkan ke tabungan.';
+    feedback = `🍔 ${Math.round(makan/500)}% budget habis untuk makan, kamu foodie sejati! Nggak salah, karena makan adalah kebutuhan primer. Tapi ekonom bilang: kalau pengeluaran satu kategori dominan, distribusi sumber daya jadi tidak efisien.${addOn}`;
+
+  // ── CASE 6: Hiburan sangat tinggi ──
+  } else if (hiburan > 20000) {
+    feedback = `🎮 ${Math.round(hiburan/500)}% budget untuk hiburan. Hati-hati dengan "hedonic adaptation": makin banyak hiburan, makin cepat bosan, makin butuh lebih banyak. Pastikan tabunganmu (Rp${tabungan.toLocaleString('id-ID')}) cukup jadi bantalan!`;
+
+  // ── CASE 7: Tabungan besar (≥30%) ──
+  } else if (tabungan >= 15000) {
+    let bonus = '';
+    if (makan < 8000) bonus = ' Tapi... Rp' + makan.toLocaleString('id-ID') + ' untuk makan sehari? Jangan sampai hemat tabungan tapi kekurangan gizi ya! 🥗';
+    else bonus = ' Dengan kebiasaan ini, kamu sedang membangun fondasi keuangan yang kuat. Rule of 50/30/20 bilang: 20% untuk tabungan itu ideal dan kamu sudah melampaui itu! 🏆';
+    feedback = `🌟 Luar biasa! Menabung Rp${tabungan.toLocaleString('id-ID')} (${Math.round(tabungan/500)}%) itu karakter finansial yang kuat!${bonus}`;
+
+  // ── CASE 8: Distribusi sangat merata ──
+  } else if (
+    Math.max(makan, transport, hiburan, tabungan, lainnya) -
+    Math.min(makan, transport, hiburan, tabungan, lainnya) < 5000
+  ) {
+    feedback = `⚖️ Distribusimu sangat merata dan seimbang! Ini mencerminkan prinsip "diversifikasi" dalam ekonomi yaitu tidak menaruh semua telur dalam satu keranjang. Kamu punya naluri alokasi yang baik. Tapi coba tanya dirimu: apakah semua kebutuhan benar-benar setara prioritasnya?`;
+
+  // ── CASE 9: Zero transport ──
+  } else if (transport === 0) {
+    feedback = `🚶 Nol transport? Kamu jalan kaki ke mana-mana, atau memang WFH total? Kalau memang hemat di situ, itu cerdas! Dalam ekonomi ini disebut "substitusi faktor produksi". Mengganti satu input (transport mahal) dengan input lain (waktu + tenaga). Tapi kalau kamu lupa input transport, itu ada biaya tersembunyi yang sering dilupakan! 😄`;
+
+  // ── CASE 10: Semua zero kecuali satu (hampir all-in) ──
+  } else if ([makan, transport, hiburan, tabungan, lainnya].filter(v => v === 0).length >= 3) {
+    const dominan = ['Makan', 'Transport', 'Hiburan', 'Tabungan', 'Lainnya']
+      [[makan, transport, hiburan, tabungan, lainnya].indexOf(Math.max(makan, transport, hiburan, tabungan, lainnya))];
+    feedback = `🎯 Kamu sangat fokus pada "${dominan}"! Ini bisa jadi keputusan rasional kalau memang itu prioritas tertinggi kamu saat ini. Tapi dalam jangka panjang, mengabaikan kategori lain sepenuhnya berisiko. Ekonomi menyebutnya "concentration risk"!`;
+
+  // ── CASE 11: Tabungan menengah (10K-14K) ──
+  } else if (tabungan >= 10000) {
+    if (hiburan > 15000) {
+      feedback = `👍 Menabung Rp${tabungan.toLocaleString('id-ID')} sudah bagus! Tapi hiburanmu (Rp${hiburan.toLocaleString('id-ID')}) lumayan tinggi. Ekonom punya istilah "opportunity cost" yang bisa diartikan bahwa setiap rupiah untuk hiburan adalah rupiah yang bisa tumbuh jika ditabung atau diinvestasikan. Trade-off yang perlu kamu pertimbangkan!`;
+    } else {
+      feedback = `👍 Solid! Menabung 20% itu sudah di jalur yang benar. Langkah berikutnya? Pertimbangkan apakah tabungan itu bisa diinvestasikan misalnya di reksa dana, emas, atau deposito agar uangmu tidak hanya "aman" tapi juga "berkembang"! 📈`;
+    }
+
+  // ── CASE 12: Tabungan kecil (1K-9K) ──
+  } else if (tabungan > 0) {
+    feedback = `😊 Masih menabung Rp${tabungan.toLocaleString('id-ID')} It's better than zero! Tapi ingat prinsip "Pay Yourself First": sebelum belanja apapun, pisahkan dulu porsi tabungan. Kalau kamu coba pindahkan Rp${(tabungan + 5000).toLocaleString('id-ID')} ke tabungan, kira-kira dari mana kamu bisa hemat?`;
+
+  // ── FALLBACK ──
+  } else {
+    feedback = `💭 Alokasi yang menarik! Setiap pilihan yang kamu buat mencerminkan nilai dan prioritasmu. Dalam ekonomi, tidak ada jawaban "benar" yang ada adalah trade-off. Coba eksperimen dengan kombinasi berbeda dan lihat bagaimana sisa budgetmu berubah!`;
+  }
+
   document.getElementById('budgetFeedbackText').textContent = feedback;
   document.getElementById('budgetFeedback').style.display = 'block';
 }
@@ -453,11 +533,11 @@ function runPolicySim() {
   let feedback = '';
   if (rate < 3) feedback = '📉 Suku bunga sangat rendah! Investasi meningkat, tapi inflasi bisa melonjak. ';
   else if (rate > 10) feedback = ' Suku bunga sangat tinggi! Inflasi terkendali, tapi investasi terhambat. ';
-  else feedback = '✅ Suku bunga moderat — posisi seimbang. ';
+  else feedback = '✅ Suku bunga moderat, posisi seimbang. ';
   if (govt > 70) feedback += '🏛️ Belanja pemerintah sangat tinggi, tapi berisiko meningkatkan utang negara. ';
   else if (govt < 30) feedback += '🏛️ Belanja pemerintah rendah. Fiskal sehat, tapi pertumbuhan mungkin lambat. ';
-  if (inflation > 6) feedback += ' ⚠️ Inflasi di atas 6% — mengkhawatirkan!';
-  if (growth > 6) feedback += '  Pertumbuhan di atas 6% — ekonomi berkembang pesat!';
+  if (inflation > 6) feedback += ' ⚠️ Inflasi di atas 6%, mengkhawatirkan!';
+  if (growth > 6) feedback += '  Pertumbuhan di atas 6%, ekonomi berkembang pesat!';
   document.getElementById('policyFeedbackText').textContent = feedback;
   document.getElementById('policyFeedback').style.display = 'block';
 }
