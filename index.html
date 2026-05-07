@@ -1,1102 +1,3635 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SuperNeo — Media Pembelajaran Ekonomi Interaktif</title>
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="logo/logo.png" type="image/x-icon">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuperNeo — Media Pembelajaran Ekonomi Interaktif</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="progress-bar" id="progressBar"></div>
 
-<div class="progress-bar" id="progressBar"></div>
-
-<nav class="top-nav">
-  <div class="logo">📊 Super<span>Neo</span></div>
-  <div class="nav-links">
-    <a href="#ch0">Dasar</a>
-    <a href="#ch1">Kelangkaan</a>
-    <a href="#ch2">Supply-Demand</a>
-    <a href="#ch3">Pasar</a>
-    <a href="#ch4">Inflasi</a>
-    <a href="#ch5">Sistem</a>
-    <a href="#ch6">GDP</a>
-    <a href="#ch7">Kebijakan</a>
-    <a href="#refs">Referensi</a>
-  </div>
-  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-</nav>
-
-<div id="mobileMenu" style="display:none;position:fixed;top:52px;left:0;width:100%;background:var(--cream);border-bottom:var(--border-thicker);z-index:1400;padding:20px;border-radius:0 0 12px 12px;">
-  <a href="#ch0" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 0 — Apa Itu Ekonomi?</a>
-  <a href="#ch1" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 1 — Kelangkaan</a>
-  <a href="#ch2" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 2 — Supply & Demand</a>
-  <a href="#ch3" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 3 — Harga & Pasar</a>
-  <a href="#ch4" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 4 — Uang & Inflasi</a>
-  <a href="#ch5" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 5 — Sistem Ekonomi</a>
-  <a href="#ch6" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 6 — Pendapatan Nasional</a>
-  <a href="#ch7" style="display:block;padding:12px;border-bottom:2px solid var(--gray);text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Ch 7 — Kebijakan</a>
-  <a href="#refs" style="display:block;padding:12px;text-decoration:none;color:var(--dark);font-weight:700;" onclick="toggleMobileMenu()">Referensi</a>
-</div>
-
-<nav class="dot-nav" id="dotNav">
-  <a href="#ch0" class="active" data-section="ch0"><span class="dot-label">Ch 0 — Dasar</span></a>
-  <a href="#ch1" data-section="ch1"><span class="dot-label">Ch 1 — Kelangkaan</span></a>
-  <a href="#ch2" data-section="ch2"><span class="dot-label">Ch 2 — S&D</span></a>
-  <a href="#ch3" data-section="ch3"><span class="dot-label">Ch 3 — Pasar</span></a>
-  <a href="#ch4" data-section="ch4"><span class="dot-label">Ch 4 — Inflasi</span></a>
-  <a href="#ch5" data-section="ch5"><span class="dot-label">Ch 5 — Sistem</span></a>
-  <a href="#ch6" data-section="ch6"><span class="dot-label">Ch 6 — GDP</span></a>
-  <a href="#ch7" data-section="ch7"><span class="dot-label">Ch 7 — Kebijakan</span></a>
-  <a href="#refs" data-section="refs"><span class="dot-label">Referensi</span></a>
-</nav>
-
-<!-- ============ CHAPTER 0 ============ -->
-<section class="section hero-section" id="ch0">
-  <div class="section-bg-pattern">
-    <svg width="100%" height="100%" viewBox="0 0 1400 800">
-      <circle cx="200" cy="150" r="80" stroke="#FF6B6B" fill="none" stroke-width="3"/>
-      <circle cx="600" cy="300" r="120" stroke="#4ECDC4" fill="none" stroke-width="2"/>
-      <line x1="100" y1="400" x2="500" y2="200" stroke="#A78BFA" stroke-width="2"/>
-      <path d="M800,100 Q900,50 1000,150 Q1100,250 900,300" stroke="#FFE66D" fill="none" stroke-width="2"/>
-      <rect x="300" y="500" width="150" height="100" stroke="#34D399" fill="none" stroke-width="2" rx="15"/>
-      <circle cx="1100" cy="500" r="60" stroke="#F472B6" fill="none" stroke-width="2"/>
-      <circle cx="1300" cy="100" r="40" stroke="#60A5FA" fill="none" stroke-width="2"/>
-    </svg>
-  </div>
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number">Chapter 0</div>
-        <h1>Apa Itu<br><span style="color:var(--coral)">Ekonomi?</span></h1>
-        <p class="hook-question">"Kenapa harga ayam goreng bisa tiba-tiba naik?"</p>
-        <p class="mb-3">Ekonomi bukan cuma soal uang. Ekonomi adalah ilmu tentang <strong>pilihan</strong>, bagaimana kita memilih di tengah keterbatasan sumber daya. Setiap keputusan yang kamu buat punya dimensi ekonomi.</p>
-        <a href="#ch0-materi" class="btn">Mulai Belajar ↓</a>
+    <nav class="top-nav">
+      <div class="logo">📊 Super<span>Neo</span></div>
+      <div class="nav-links">
+        <a href="#ch0">Dasar</a>
+        <a href="#ch1">Kelangkaan</a>
+        <a href="#ch2">Supply-Demand</a>
+        <a href="#ch3">Pasar</a>
+        <a href="#ch4">Inflasi</a>
+        <a href="#ch5">Sistem</a>
+        <a href="#ch6">GDP</a>
+        <a href="#ch7">Kebijakan</a>
+        <a href="#refs">Referensi</a>
       </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" class="doodle-svg" width="100%">
-          <circle cx="200" cy="200" r="100" stroke="#FF6B6B" fill="none" stroke-width="4" stroke-dasharray="8,3"/>
-          <circle cx="200" cy="200" r="85" stroke="#4ECDC4" fill="none" stroke-width="3"/>
-          <text x="200" y="210" text-anchor="middle" font-size="48" font-weight="900" fill="#FF6B6B" font-family="'Noto Sans', sans-serif">Rp</text>
-          <line x1="80" y1="100" x2="100" y2="80" stroke="#FFE66D" stroke-width="4"/>
-          <circle cx="90" cy="90" r="6" fill="#FFE66D"/>
-          <line x1="300" y1="100" x2="320" y2="80" stroke="#4ECDC4" stroke-width="4"/>
-          <circle cx="310" cy="90" r="6" fill="#4ECDC4"/>
-          <line x1="100" y1="320" x2="80" y2="340" stroke="#A78BFA" stroke-width="4"/>
-          <circle cx="90" cy="330" r="6" fill="#A78BFA"/>
-          <line x1="320" y1="320" x2="300" y2="340" stroke="#34D399" stroke-width="4"/>
-          <circle cx="310" cy="330" r="6" fill="#34D399"/>
-          <text x="100" y="160" font-size="30" font-weight="900" fill="#A78BFA" opacity="0.3">?</text>
-          <text x="300" y="260" font-size="24" font-weight="900" fill="#F472B6" opacity="0.3">?</text>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
+
+    <div
+      id="mobileMenu"
+      style="
+        display: none;
+        position: fixed;
+        top: 52px;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        border-bottom: var(--border-thicker);
+        z-index: 1400;
+        padding: 20px;
+        border-radius: 0 0 12px 12px;
+      "
+    >
+      <a
+        href="#ch0"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 0 — Apa Itu Ekonomi?</a
+      >
+      <a
+        href="#ch1"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 1 — Kelangkaan</a
+      >
+      <a
+        href="#ch2"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 2 — Supply & Demand</a
+      >
+      <a
+        href="#ch3"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 3 — Harga & Pasar</a
+      >
+      <a
+        href="#ch4"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 4 — Uang & Inflasi</a
+      >
+      <a
+        href="#ch5"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 5 — Sistem Ekonomi</a
+      >
+      <a
+        href="#ch6"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 6 — Pendapatan Nasional</a
+      >
+      <a
+        href="#ch7"
+        style="
+          display: block;
+          padding: 12px;
+          border-bottom: 2px solid var(--gray);
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Ch 7 — Kebijakan</a
+      >
+      <a
+        href="#refs"
+        style="
+          display: block;
+          padding: 12px;
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 700;
+        "
+        onclick="toggleMobileMenu()"
+        >Referensi</a
+      >
+    </div>
+
+    <nav class="dot-nav" id="dotNav">
+      <a href="#ch0" class="active" data-section="ch0"
+        ><span class="dot-label">Ch 0 — Dasar</span></a
+      >
+      <a href="#ch1" data-section="ch1"
+        ><span class="dot-label">Ch 1 — Kelangkaan</span></a
+      >
+      <a href="#ch2" data-section="ch2"
+        ><span class="dot-label">Ch 2 — S&D</span></a
+      >
+      <a href="#ch3" data-section="ch3"
+        ><span class="dot-label">Ch 3 — Pasar</span></a
+      >
+      <a href="#ch4" data-section="ch4"
+        ><span class="dot-label">Ch 4 — Inflasi</span></a
+      >
+      <a href="#ch5" data-section="ch5"
+        ><span class="dot-label">Ch 5 — Sistem</span></a
+      >
+      <a href="#ch6" data-section="ch6"
+        ><span class="dot-label">Ch 6 — GDP</span></a
+      >
+      <a href="#ch7" data-section="ch7"
+        ><span class="dot-label">Ch 7 — Kebijakan</span></a
+      >
+      <a href="#refs" data-section="refs"
+        ><span class="dot-label">Referensi</span></a
+      >
+    </nav>
+
+    <!-- ============ CHAPTER 0 ============ -->
+    <section class="section hero-section" id="ch0">
+      <div class="section-bg-pattern">
+        <svg width="100%" height="100%" viewBox="0 0 1400 800">
+          <circle
+            cx="200"
+            cy="150"
+            r="80"
+            stroke="#FF6B6B"
+            fill="none"
+            stroke-width="3"
+          />
+          <circle
+            cx="600"
+            cy="300"
+            r="120"
+            stroke="#4ECDC4"
+            fill="none"
+            stroke-width="2"
+          />
+          <line
+            x1="100"
+            y1="400"
+            x2="500"
+            y2="200"
+            stroke="#A78BFA"
+            stroke-width="2"
+          />
+          <path
+            d="M800,100 Q900,50 1000,150 Q1100,250 900,300"
+            stroke="#FFE66D"
+            fill="none"
+            stroke-width="2"
+          />
+          <rect
+            x="300"
+            y="500"
+            width="150"
+            height="100"
+            stroke="#34D399"
+            fill="none"
+            stroke-width="2"
+            rx="15"
+          />
+          <circle
+            cx="1100"
+            cy="500"
+            r="60"
+            stroke="#F472B6"
+            fill="none"
+            stroke-width="2"
+          />
+          <circle
+            cx="1300"
+            cy="100"
+            r="40"
+            stroke="#60A5FA"
+            fill="none"
+            stroke-width="2"
+          />
         </svg>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number">Chapter 0</div>
+            <h1>
+              Apa Itu<br /><span style="color: var(--coral)">Ekonomi?</span>
+            </h1>
+            <p class="hook-question">
+              "Kenapa harga ayam goreng bisa tiba-tiba naik?"
+            </p>
+            <p class="mb-3">
+              Ekonomi bukan cuma soal uang. Ekonomi adalah ilmu tentang
+              <strong>pilihan</strong>, bagaimana kita memilih di tengah
+              keterbatasan sumber daya. Setiap keputusan yang kamu buat punya
+              dimensi ekonomi.
+            </p>
+            <a href="#ch0-materi" class="btn">Mulai Belajar ↓</a>
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" class="doodle-svg" width="100%">
+              <circle
+                cx="200"
+                cy="200"
+                r="100"
+                stroke="#FF6B6B"
+                fill="none"
+                stroke-width="4"
+                stroke-dasharray="8,3"
+              />
+              <circle
+                cx="200"
+                cy="200"
+                r="85"
+                stroke="#4ECDC4"
+                fill="none"
+                stroke-width="3"
+              />
+              <text
+                x="200"
+                y="210"
+                text-anchor="middle"
+                font-size="48"
+                font-weight="900"
+                fill="#FF6B6B"
+                font-family="'Noto Sans', sans-serif"
+              >
+                Rp
+              </text>
+              <line
+                x1="80"
+                y1="100"
+                x2="100"
+                y2="80"
+                stroke="#FFE66D"
+                stroke-width="4"
+              />
+              <circle cx="90" cy="90" r="6" fill="#FFE66D" />
+              <line
+                x1="300"
+                y1="100"
+                x2="320"
+                y2="80"
+                stroke="#4ECDC4"
+                stroke-width="4"
+              />
+              <circle cx="310" cy="90" r="6" fill="#4ECDC4" />
+              <line
+                x1="100"
+                y1="320"
+                x2="80"
+                y2="340"
+                stroke="#A78BFA"
+                stroke-width="4"
+              />
+              <circle cx="90" cy="330" r="6" fill="#A78BFA" />
+              <line
+                x1="320"
+                y1="320"
+                x2="300"
+                y2="340"
+                stroke="#34D399"
+                stroke-width="4"
+              />
+              <circle cx="310" cy="330" r="6" fill="#34D399" />
+              <text
+                x="100"
+                y="160"
+                font-size="30"
+                font-weight="900"
+                fill="#A78BFA"
+                opacity="0.3"
+              >
+                ?
+              </text>
+              <text
+                x="300"
+                y="260"
+                font-size="24"
+                font-weight="900"
+                fill="#F472B6"
+                opacity="0.3"
+              >
+                ?
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="section" id="ch0-materi" style="background:var(--gray)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--teal);color:#fff">Materi</div>
-    <h2 class="mb-3">Ekonomi: Ilmu Tentang <span style="color:var(--coral)">Pilihan</span></h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:5px solid var(--coral)">
-        <h4 class="mb-2"> Definisi</h4>
-        <p>Ekonomi berasal dari bahasa Yunani <em>"oikos"</em> (rumah) dan <em>"nomos"</em> (aturan). Secara sederhana, ekonomi mempelajari bagaimana individu, masyarakat, dan negara membuat <strong>keputusan alokasi sumber daya yang terbatas</strong> untuk memenuhi kebutuhan yang tidak terbatas.</p>
-      </div>
-      <div class="card" style="border-top:5px solid var(--purple)">
-        <h4 class="mb-2">🎯 Inti Masalah Ekonomi</h4>
-        <p>Kebutuhan manusia <strong>tidak terbatas</strong>, sementara sumber daya <strong>terbatas</strong>. Ketimpangan inilah yang menjadi akar dari semua masalah ekonomi. Dari sinilah muncul konsep <strong>kelangkaan (scarcity)</strong>.</p>
-      </div>
-    </div>
-    <div class="fact-card mt-4">
-      <p>Setiap kali kamu memilih scrolling TikTok selama 1 jam, kamu sedang membuat keputusan ekonomi karena waktu itu bisa digunakan untuk belajar, bekerja, atau istirahat. Inilah yang disebut <strong>opportunity cost</strong>!</p>
-    </div>
-    <div class="mt-4">
-      <h4 class="mb-2">Contoh Keputusan Ekonomi Sehari-hari:</h4>
-      <div class="grid-3">
-        <div class="card text-center" style="border-top:5px solid var(--coral)">
-          <svg viewBox="0 0 100 100" width="80" height="80" style="margin:0 auto">
-            <rect x="20" y="30" width="60" height="50" rx="8" stroke="#FF6B6B" fill="none" stroke-width="3"/>
-            <line x1="30" y1="45" x2="70" y2="45" stroke="#FF6B6B" stroke-width="2"/>
-            <line x1="30" y1="55" x2="60" y2="55" stroke="#FF6B6B" stroke-width="2"/>
-            <line x1="30" y1="65" x2="50" y2="65" stroke="#FF6B6B" stroke-width="2"/>
-          </svg>
-          <p class="mt-2 fw-bold">Membeli buku vs makanan</p>
+    <section class="section" id="ch0-materi" style="background: var(--gray)">
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--teal); color: #fff"
+        >
+          Materi
         </div>
-        <div class="card text-center" style="border-top:5px solid var(--teal)">
-          <svg viewBox="0 0 100 100" width="80" height="80" style="margin:0 auto">
-            <circle cx="50" cy="50" r="30" stroke="#4ECDC4" fill="none" stroke-width="3"/>
-            <line x1="50" y1="50" x2="50" y2="30" stroke="#4ECDC4" stroke-width="3"/>
-            <line x1="50" y1="50" x2="65" y2="50" stroke="#4ECDC4" stroke-width="3"/>
-          </svg>
-          <p class="mt-2 fw-bold">Belajar vs main game</p>
+        <h2 class="mb-3">
+          Ekonomi: Ilmu Tentang <span style="color: var(--coral)">Pilihan</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-top: 5px solid var(--coral)">
+            <h4 class="mb-2">Definisi</h4>
+            <p>
+              Ekonomi berasal dari bahasa Yunani <em>"oikos"</em> (rumah) dan
+              <em>"nomos"</em> (aturan). Secara sederhana, ekonomi mempelajari
+              bagaimana individu, masyarakat, dan negara membuat
+              <strong>keputusan alokasi sumber daya yang terbatas</strong> untuk
+              memenuhi kebutuhan yang tidak terbatas.
+            </p>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--purple)">
+            <h4 class="mb-2">🎯 Inti Masalah Ekonomi</h4>
+            <p>
+              Kebutuhan manusia <strong>tidak terbatas</strong>, sementara
+              sumber daya <strong>terbatas</strong>. Ketimpangan inilah yang
+              menjadi akar dari semua masalah ekonomi. Dari sinilah muncul
+              konsep <strong>kelangkaan (scarcity)</strong>.
+            </p>
+          </div>
         </div>
-        <div class="card text-center" style="border-top:5px solid var(--purple)">
-          <svg viewBox="0 0 100 100" width="80" height="80" style="margin:0 auto">
-            <path d="M30,70 Q50,20 70,70" stroke="#A78BFA" fill="none" stroke-width="3"/>
-            <circle cx="50" cy="30" r="8" stroke="#A78BFA" fill="none" stroke-width="2"/>
-          </svg>
-          <p class="mt-2 fw-bold">Menabung vs belanja</p>
+        <div class="fact-card mt-4">
+          <p>
+            Setiap kali kamu memilih scrolling TikTok selama 1 jam, kamu sedang
+            membuat keputusan ekonomi karena waktu itu bisa digunakan untuk
+            belajar, bekerja, atau istirahat. Inilah yang disebut
+            <strong>opportunity cost</strong>!
+          </p>
+        </div>
+        <div class="mt-4">
+          <h4 class="mb-2">Contoh Keputusan Ekonomi Sehari-hari:</h4>
+          <div class="grid-3">
+            <div
+              class="card text-center"
+              style="border-top: 5px solid var(--coral)"
+            >
+              <svg
+                viewBox="0 0 100 100"
+                width="80"
+                height="80"
+                style="margin: 0 auto"
+              >
+                <rect
+                  x="20"
+                  y="30"
+                  width="60"
+                  height="50"
+                  rx="8"
+                  stroke="#FF6B6B"
+                  fill="none"
+                  stroke-width="3"
+                />
+                <line
+                  x1="30"
+                  y1="45"
+                  x2="70"
+                  y2="45"
+                  stroke="#FF6B6B"
+                  stroke-width="2"
+                />
+                <line
+                  x1="30"
+                  y1="55"
+                  x2="60"
+                  y2="55"
+                  stroke="#FF6B6B"
+                  stroke-width="2"
+                />
+                <line
+                  x1="30"
+                  y1="65"
+                  x2="50"
+                  y2="65"
+                  stroke="#FF6B6B"
+                  stroke-width="2"
+                />
+              </svg>
+              <p class="mt-2 fw-bold">Membeli buku vs makanan</p>
+            </div>
+            <div
+              class="card text-center"
+              style="border-top: 5px solid var(--teal)"
+            >
+              <svg
+                viewBox="0 0 100 100"
+                width="80"
+                height="80"
+                style="margin: 0 auto"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="30"
+                  stroke="#4ECDC4"
+                  fill="none"
+                  stroke-width="3"
+                />
+                <line
+                  x1="50"
+                  y1="50"
+                  x2="50"
+                  y2="30"
+                  stroke="#4ECDC4"
+                  stroke-width="3"
+                />
+                <line
+                  x1="50"
+                  y1="50"
+                  x2="65"
+                  y2="50"
+                  stroke="#4ECDC4"
+                  stroke-width="3"
+                />
+              </svg>
+              <p class="mt-2 fw-bold">Belajar vs main game</p>
+            </div>
+            <div
+              class="card text-center"
+              style="border-top: 5px solid var(--purple)"
+            >
+              <svg
+                viewBox="0 0 100 100"
+                width="80"
+                height="80"
+                style="margin: 0 auto"
+              >
+                <path
+                  d="M30,70 Q50,20 70,70"
+                  stroke="#A78BFA"
+                  fill="none"
+                  stroke-width="3"
+                />
+                <circle
+                  cx="50"
+                  cy="30"
+                  r="8"
+                  stroke="#A78BFA"
+                  fill="none"
+                  stroke-width="2"
+                />
+              </svg>
+              <p class="mt-2 fw-bold">Menabung vs belanja</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch0-interaktif" style="background:var(--light-cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--purple)">Interaktif</div>
-    <h2 class="mb-2">Simulasi: Alokasi <span style="color:var(--purple)">Uang Jajan</span></h2>
-    <p class="mb-3">Kamu punya <strong>Rp50.000</strong>. Bagikan ke kebutuhan berikut. Lihat apa kata sistem ekonomimu!</p>
-    
-    <!-- Wrapper Baru untuk menyejajarkan Card -->
-    <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start;">
-      <!-- Card Pertama -->
-      <!-- Hapus max-width:600px dan ganti dengan flex: 1 dan min-width -->
-      <div class="card" style="flex: 1; min-width: 300px; max-width: 580px; border-top:5px solid var(--purple)">
-        <h4 class="mb-2"> Sisa: <span id="budgetRemaining">Rp50.000</span></h4>
-        <div class="slider-container">
-          <label>🍔 Makan: Rp<span id="valMakan">10.000</span></label>
-          <input type="range" min="0" max="50000" value="10000" step="1000" id="sliderMakan" oninput="updateBudget()">
+    <section
+      class="section"
+      id="ch0-interaktif"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--purple)">
+          Interaktif
         </div>
-        <div class="slider-container">
-          <label>🚌 Transport: Rp<span id="valTransport">5.000</span></label>
-          <input type="range" min="0" max="50000" value="5000" step="1000" id="sliderTransport" oninput="updateBudget()">
-        </div>
-        <div class="slider-container">
-          <label>🎮 Hiburan: Rp<span id="valHiburan">10.000</span></label>
-          <input type="range" min="0" max="50000" value="10000" step="1000" id="sliderHiburan" oninput="updateBudget()">
-        </div>
-        <div class="slider-container">
-          <label>💰 Tabungan: Rp<span id="valTabungan">10.000</span></label>
-          <input type="range" min="0" max="50000" value="10000" step="1000" id="sliderTabungan" oninput="updateBudget()">
-        </div>
-        <div class="slider-container">
-          <label>📦 Lainnya: Rp<span id="valLainnya">10.000</span></label>
-          <input type="range" min="0" max="50000" value="10000" step="1000" id="sliderLainnya" oninput="updateBudget()">
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-black" onclick="analyzeBudget()">📊 Analisis Pilihanku</button>
-        </div>
-      </div>
+        <h2 class="mb-2">
+          Simulasi: Alokasi <span style="color: var(--purple)">Uang Jajan</span>
+        </h2>
+        <p class="mb-3">
+          Kamu punya <strong>Rp50.000</strong>. Bagikan ke kebutuhan berikut.
+          Lihat apa kata sistem ekonomimu!
+        </p>
 
-      <!-- Card Kedua -->
-      <!-- Sama seperti card pertama, gunakan flex: 1 -->
-      <div id="budgetFeedback" class="fact-card my-3" style="flex:1; display:none; min-width: 300px; max-width: 600px;">
-        <p id="budgetFeedbackText"></p>
-      </div>
-      <div id="budgetFeedback" class="card mt-3" style="flex:1; display:none; min-width: 300px; max-width: 600px; border-top:5px solid var(--purple)">
-      </div>
-    </div> <!-- Penutup Wrapper Baru -->
-    
-  </div>
-</section>
+        <!-- Wrapper Baru untuk menyejajarkan Card -->
+        <div
+          style="
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+          "
+        >
+          <!-- Card Pertama -->
+          <!-- Hapus max-width:600px dan ganti dengan flex: 1 dan min-width -->
+          <div
+            class="card"
+            style="
+              flex: 1;
+              min-width: 300px;
+              max-width: 580px;
+              border-top: 5px solid var(--purple);
+            "
+          >
+            <h4 class="mb-2">
+              Sisa: <span id="budgetRemaining">Rp50.000</span>
+            </h4>
+            <div class="slider-container">
+              <label>🍔 Makan: Rp<span id="valMakan">10.000</span></label>
+              <input
+                type="range"
+                min="0"
+                max="50000"
+                value="10000"
+                step="1000"
+                id="sliderMakan"
+                oninput="updateBudget()"
+              />
+            </div>
+            <div class="slider-container">
+              <label
+                >🚌 Transport: Rp<span id="valTransport">5.000</span></label
+              >
+              <input
+                type="range"
+                min="0"
+                max="50000"
+                value="5000"
+                step="1000"
+                id="sliderTransport"
+                oninput="updateBudget()"
+              />
+            </div>
+            <div class="slider-container">
+              <label>🎮 Hiburan: Rp<span id="valHiburan">10.000</span></label>
+              <input
+                type="range"
+                min="0"
+                max="50000"
+                value="10000"
+                step="1000"
+                id="sliderHiburan"
+                oninput="updateBudget()"
+              />
+            </div>
+            <div class="slider-container">
+              <label>💰 Tabungan: Rp<span id="valTabungan">10.000</span></label>
+              <input
+                type="range"
+                min="0"
+                max="50000"
+                value="10000"
+                step="1000"
+                id="sliderTabungan"
+                oninput="updateBudget()"
+              />
+            </div>
+            <div class="slider-container">
+              <label>📦 Lainnya: Rp<span id="valLainnya">10.000</span></label>
+              <input
+                type="range"
+                min="0"
+                max="50000"
+                value="10000"
+                step="1000"
+                id="sliderLainnya"
+                oninput="updateBudget()"
+              />
+            </div>
+            <div class="mt-3">
+              <button class="btn btn-black" onclick="analyzeBudget()">
+                📊 Analisis Pilihanku
+              </button>
+            </div>
+          </div>
 
-<section class="section" id="ch0-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--coral);color:#fff">Ringkasan</div>
-    <h2 class="mb-4">Chapter 0: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">Ekonomi adalah ilmu tentang pilihan di tengah kelangkaan</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--teal)">Kebutuhan tidak terbatas, sumber daya terbatas</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--purple)">Setiap keputusan memiliki opportunity cost</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--yellow)">Ekonomi ada di setiap aspek kehidupan sehari-hari</li>
-    </ul>
-    <a href="#ch1" class="btn btn-teal mt-4">Lanjut ke Chapter 1 →</a>
-  </div>
-</section>
-
-<!-- ============ CHAPTER 1 ============ -->
-<section class="section hero-section" id="ch1" style="background:var(--light-cream)">
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number" style="background:var(--teal)">Chapter 1</div>
-        <h1>Kelangkaan<br>& <span style="color:var(--teal)">Pilihan</span></h1>
-        <p class="hook-question" style="border-left-color:var(--teal)">"Kenapa BBM harus disubsidi? Kenapa antrian sembako selalu panjang?"</p>
-        <p class="mb-3">Kelangkaan adalah kondisi di mana sumber daya tidak cukup untuk memenuhi semua kebutuhan manusia. Ini bukan berarti barangnya hilang tetapi <strong>jumlahnya tidak sebanding dengan keinginan</strong>.</p>
-        <a href="#ch1-materi" class="btn btn-teal">Pelajari Lebih Lanjut ↓</a>
+          <!-- Card Kedua -->
+          <!-- Sama seperti card pertama, gunakan flex: 1 -->
+          <div
+            id="budgetFeedback"
+            class="fact-card my-3"
+            style="flex: 1; display: none; min-width: 300px; max-width: 600px"
+          >
+            <p id="budgetFeedbackText"></p>
+          </div>
+          <div
+            id="budgetFeedback"
+            class="card mt-3"
+            style="
+              flex: 1;
+              display: none;
+              min-width: 300px;
+              max-width: 600px;
+              border-top: 5px solid var(--purple);
+            "
+          ></div>
+        </div>
+        <!-- Penutup Wrapper Baru -->
       </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" width="100%">
-          <rect x="120" y="150" width="160" height="120" rx="12" stroke="#4ECDC4" fill="none" stroke-width="4"/>
-          <line x1="120" y1="190" x2="280" y2="190" stroke="#4ECDC4" stroke-width="2"/>
-          <text x="200" y="180" text-anchor="middle" font-size="14" font-weight="900" fill="#4ECDC4">SUMBER DAYA</text>
-          <rect x="130" y="200" width="40" height="60" fill="#4ECDC4" rx="4"/>
-          <text x="150" y="235" text-anchor="middle" font-size="10" font-weight="900" fill="#fff">20%</text>
-          <path d="M100,270 Q100,200 120,160" stroke="#4ECDC4" fill="none" stroke-width="3"/>
-          <path d="M300,270 Q300,200 280,160" stroke="#4ECDC4" fill="none" stroke-width="3"/>
-          <circle cx="80" cy="300" r="15" stroke="#FF6B6B" fill="none" stroke-width="3"/>
-          <line x1="80" y1="315" x2="80" y2="350" stroke="#FF6B6B" stroke-width="3"/>
-          <line x1="80" y1="325" x2="65" y2="340" stroke="#FF6B6B" stroke-width="3"/>
-          <line x1="80" y1="325" x2="95" y2="340" stroke="#FF6B6B" stroke-width="3"/>
-          <circle cx="320" cy="300" r="15" stroke="#A78BFA" fill="none" stroke-width="3"/>
-          <line x1="320" y1="315" x2="320" y2="350" stroke="#A78BFA" stroke-width="3"/>
-          <line x1="320" y1="325" x2="305" y2="340" stroke="#A78BFA" stroke-width="3"/>
-          <line x1="320" y1="325" x2="335" y2="340" stroke="#A78BFA" stroke-width="3"/>
-          <text x="200" y="340" text-anchor="middle" font-size="30" font-weight="900" fill="#4ECDC4" opacity="0.3">??</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch1-materi" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--coral)">Materi</div>
-    <h2 class="mb-3">Konsep Kelangkaan & <span style="color:var(--coral)">Opportunity Cost</span></h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:5px solid var(--teal)">
-        <h4 class="mb-2">📉 Kelangkaan (Scarcity)</h4>
-        <p>Kelangkaan terjadi ketika keinginan manusia melebihi kemampuan sumber daya yang tersedia.</p>
-        <p class="mt-2"><strong>Penyebab kelangkaan:</strong></p>
-        <ul style="margin-left:20px;margin-top:8px">
-          <li>Sumber daya alam terbatas</li>
-          <li>Pertumbuhan penduduk</li>
-          <li>Ketidakmerataan distribusi</li>
-          <li>Bencana alam</li>
+    <section
+      class="section"
+      id="ch0-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--coral); color: #fff"
+        >
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 0: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            Ekonomi adalah ilmu tentang pilihan di tengah kelangkaan
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--teal);
+            "
+          >
+            Kebutuhan tidak terbatas, sumber daya terbatas
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--purple);
+            "
+          >
+            Setiap keputusan memiliki opportunity cost
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--yellow);
+            "
+          >
+            Ekonomi ada di setiap aspek kehidupan sehari-hari
+          </li>
         </ul>
+        <a href="#ch1" class="btn btn-teal mt-4">Lanjut ke Chapter 1 →</a>
       </div>
-      <div class="card" style="border-top:5px solid var(--coral)">
-        <h4 class="mb-2">🔄 Opportunity Cost</h4>
-        <p><strong>Biaya peluang</strong> adalah nilai dari alternatif terbaik yang harus dikorbankan ketika membuat pilihan.</p>
-        <p class="mt-2"><strong>Contoh:</strong> Kamu punya uang Rp100.000:</p>
-        <ul style="margin-left:20px;margin-top:8px">
-          <li>Beli buku → cost: tidak bisa nonton bioskop</li>
-          <li>Nonton bioskop → cost: tidak dapat ilmu dari buku</li>
+    </section>
+
+    <!-- ============ CHAPTER 1 ============ -->
+    <section
+      class="section hero-section"
+      id="ch1"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number" style="background: var(--teal)">
+              Chapter 1
+            </div>
+            <h1>
+              Kelangkaan<br />& <span style="color: var(--teal)">Pilihan</span>
+            </h1>
+            <p class="hook-question" style="border-left-color: var(--teal)">
+              "Kenapa BBM harus disubsidi? Kenapa antrian sembako selalu
+              panjang?"
+            </p>
+            <p class="mb-3">
+              Kelangkaan adalah kondisi di mana sumber daya tidak cukup untuk
+              memenuhi semua kebutuhan manusia. Ini bukan berarti barangnya
+              hilang tetapi
+              <strong>jumlahnya tidak sebanding dengan keinginan</strong>.
+            </p>
+            <a href="#ch1-materi" class="btn btn-teal"
+              >Pelajari Lebih Lanjut ↓</a
+            >
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" width="100%">
+              <rect
+                x="120"
+                y="150"
+                width="160"
+                height="120"
+                rx="12"
+                stroke="#4ECDC4"
+                fill="none"
+                stroke-width="4"
+              />
+              <line
+                x1="120"
+                y1="190"
+                x2="280"
+                y2="190"
+                stroke="#4ECDC4"
+                stroke-width="2"
+              />
+              <text
+                x="200"
+                y="180"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="900"
+                fill="#4ECDC4"
+              >
+                SUMBER DAYA
+              </text>
+              <rect
+                x="130"
+                y="200"
+                width="40"
+                height="60"
+                fill="#4ECDC4"
+                rx="4"
+              />
+              <text
+                x="150"
+                y="235"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="900"
+                fill="#fff"
+              >
+                20%
+              </text>
+              <path
+                d="M100,270 Q100,200 120,160"
+                stroke="#4ECDC4"
+                fill="none"
+                stroke-width="3"
+              />
+              <path
+                d="M300,270 Q300,200 280,160"
+                stroke="#4ECDC4"
+                fill="none"
+                stroke-width="3"
+              />
+              <circle
+                cx="80"
+                cy="300"
+                r="15"
+                stroke="#FF6B6B"
+                fill="none"
+                stroke-width="3"
+              />
+              <line
+                x1="80"
+                y1="315"
+                x2="80"
+                y2="350"
+                stroke="#FF6B6B"
+                stroke-width="3"
+              />
+              <line
+                x1="80"
+                y1="325"
+                x2="65"
+                y2="340"
+                stroke="#FF6B6B"
+                stroke-width="3"
+              />
+              <line
+                x1="80"
+                y1="325"
+                x2="95"
+                y2="340"
+                stroke="#FF6B6B"
+                stroke-width="3"
+              />
+              <circle
+                cx="320"
+                cy="300"
+                r="15"
+                stroke="#A78BFA"
+                fill="none"
+                stroke-width="3"
+              />
+              <line
+                x1="320"
+                y1="315"
+                x2="320"
+                y2="350"
+                stroke="#A78BFA"
+                stroke-width="3"
+              />
+              <line
+                x1="320"
+                y1="325"
+                x2="305"
+                y2="340"
+                stroke="#A78BFA"
+                stroke-width="3"
+              />
+              <line
+                x1="320"
+                y1="325"
+                x2="335"
+                y2="340"
+                stroke="#A78BFA"
+                stroke-width="3"
+              />
+              <text
+                x="200"
+                y="340"
+                text-anchor="middle"
+                font-size="30"
+                font-weight="900"
+                fill="#4ECDC4"
+                opacity="0.3"
+              >
+                ??
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ch1-materi" style="background: var(--cream)">
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--coral)">
+          Materi
+        </div>
+        <h2 class="mb-3">
+          Konsep Kelangkaan &
+          <span style="color: var(--coral)">Opportunity Cost</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-top: 5px solid var(--teal)">
+            <h4 class="mb-2">📉 Kelangkaan (Scarcity)</h4>
+            <p>
+              Kelangkaan terjadi ketika keinginan manusia melebihi kemampuan
+              sumber daya yang tersedia.
+            </p>
+            <p class="mt-2"><strong>Penyebab kelangkaan:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 8px">
+              <li>Sumber daya alam terbatas</li>
+              <li>Pertumbuhan penduduk</li>
+              <li>Ketidakmerataan distribusi</li>
+              <li>Bencana alam</li>
+            </ul>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--coral)">
+            <h4 class="mb-2">🔄 Opportunity Cost</h4>
+            <p>
+              <strong>Biaya peluang</strong> adalah nilai dari alternatif
+              terbaik yang harus dikorbankan ketika membuat pilihan.
+            </p>
+            <p class="mt-2">
+              <strong>Contoh:</strong> Kamu punya uang Rp100.000:
+            </p>
+            <ul style="margin-left: 20px; margin-top: 8px">
+              <li>Beli buku → cost: tidak bisa nonton bioskop</li>
+              <li>Nonton bioskop → cost: tidak dapat ilmu dari buku</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fact-card mt-4">
+          <p>
+            Pemerintah Indonesia menghabiskan sekitar Rp 160-170 triliun untuk
+            subsidi energi (BBM, LPG, listrik) setiap tahun. Opportunity
+            cost-nya? Uang itu bisa dipakai untuk membangun ribuan sekolah atau
+            rumah sakit!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch1-interaktif"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--green); color: #fff"
+        >
+          Interaktif
+        </div>
+        <h2 class="mb-3">
+          Simulasi:
+          <span style="color: var(--green)">Skala Prioritas</span> Negara
+        </h2>
+        <p class="mb-3">
+          Kamu adalah menteri keuangan. Alokasikan
+          <strong>Rp1.000 Miliar</strong> ke sektor-sektor berikut.
+        </p>
+        <div class="grid-2">
+          <div>
+            <div class="slider-container">
+              <label> Kesehatan: Rp<span id="valKesehatan">250</span> M</label>
+              <input
+                type="range"
+                min="0"
+                max="1000"
+                value="250"
+                step="10"
+                id="sliderKesehatan"
+                oninput="updateResourceAlloc()"
+              />
+            </div>
+            <div class="slider-container">
+              <label
+                >📚 Pendidikan: Rp<span id="valPendidikan">250</span> M</label
+              >
+              <input
+                type="range"
+                min="0"
+                max="1000"
+                value="250"
+                step="10"
+                id="sliderPendidikan"
+                oninput="updateResourceAlloc()"
+              />
+            </div>
+            <div class="slider-container">
+              <label
+                >🛣️ Infrastruktur: Rp<span id="valInfrastruktur">250</span>
+                M</label
+              >
+              <input
+                type="range"
+                min="0"
+                max="1000"
+                value="250"
+                step="10"
+                id="sliderInfrastruktur"
+                oninput="updateResourceAlloc()"
+              />
+            </div>
+            <div class="slider-container">
+              <label
+                >️ Pertahanan: Rp<span id="valPertahanan">100</span> M</label
+              >
+              <input
+                type="range"
+                min="0"
+                max="1000"
+                value="100"
+                step="10"
+                id="sliderPertahanan"
+                oninput="updateResourceAlloc()"
+              />
+            </div>
+            <div class="slider-container">
+              <label
+                >🌾 Pertanian: Rp<span id="valPertanian">150</span> M</label
+              >
+              <input
+                type="range"
+                min="0"
+                max="1000"
+                value="150"
+                step="10"
+                id="sliderPertanian"
+                oninput="updateResourceAlloc()"
+              />
+            </div>
+            <p class="fw-bold mt-2">
+              Total: Rp<span id="resourceTotal">1000</span> M
+              <span id="resourceStatus" style="color: #888"
+                >(sesuai budget)</span
+              >
+            </p>
+          </div>
+          <div>
+            <h4 class="mb-2">📊 Dampak Pilihanmu:</h4>
+            <div
+              class="card"
+              id="impactDisplay"
+              style="border-top: 5px solid var(--green)"
+            >
+              <div class="mb-2">
+                <span>🏥 Kesehatan: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugeKesehatan"
+                    style="width: 50%; background: var(--coral)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelKesehatan">50%</span>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span> Pendidikan: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugePendidikan"
+                    style="width: 50%; background: var(--purple)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelPendidikan">50%</span>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span>🛣️ Infrastruktur: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugeInfrastruktur"
+                    style="width: 50%; background: var(--teal)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelInfrastruktur"
+                    >50%</span
+                  >
+                </div>
+              </div>
+              <div class="mb-2">
+                <span>🛡️ Keamanan: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugePertahanan"
+                    style="width: 50%; background: var(--blue)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelPertahanan">50%</span>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span>🌾 Pangan: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugePertanian"
+                    style="width: 50%; background: var(--green)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelPertanian">50%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ch1-contoh" style="background: var(--cream)">
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--orange); color: #fff"
+        >
+          Contoh Nyata
+        </div>
+        <h2 class="mb-3">
+          Kelangkaan di <span style="color: var(--orange)">Dunia Nyata</span>
+        </h2>
+        <div class="slide-container" id="slideCh1">
+          <div
+            class="slide-item card"
+            style="border-top: 5px solid var(--coral)"
+          >
+            <h4>Subsidi BBM Indonesia</h4>
+            <p>
+              Pemerintah menghabiskan ratusan triliun untuk subsidi BBM. Ini
+              adalah contoh kelangkaan anggaran dikarenakan uang itu terbatas,
+              tapi kebutuhan subsidi sangat besar.
+            </p>
+          </div>
+          <div
+            class="slide-item card"
+            style="border-top: 5px solid var(--teal)"
+          >
+            <h4>🛒 Antrian Sembako</h4>
+            <p>
+              Saat pandemi, antrian bantuan sembako mengular panjang. Bukti
+              nyata kelangkaan: kebutuhan jauh lebih besar dari ketersediaan
+              barang.
+            </p>
+          </div>
+          <div
+            class="slide-item card"
+            style="border-top: 5px solid var(--purple)"
+          >
+            <h4>🗺️ Ketimpangan Distribusi</h4>
+            <p>
+              Pulau Jawa hanya 7% wilayah Indonesia tapi menampung 60% penduduk.
+              Kelangkaan karena distribusi tidak merata.
+            </p>
+          </div>
+          <div
+            class="slide-item card"
+            style="border-top: 5px solid var(--green)"
+          >
+            <h4>⏰ Kelangkaan Waktu</h4>
+            <p>
+              Waktu adalah sumber daya paling langka. Semua orang hanya punya 24
+              jam sehari. Bagaimana kamu mengalokasikannya?
+            </p>
+          </div>
+        </div>
+        <div class="slide-indicator" id="slideIndCh1">
+          <div
+            class="slide-dot active"
+            onclick="scrollToSlide('slideCh1', 0)"
+          ></div>
+          <div class="slide-dot" onclick="scrollToSlide('slideCh1', 1)"></div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch1-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--teal); color: #fff"
+        >
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 1: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--teal);
+            "
+          >
+            Kelangkaan = keinginan > sumber daya yang tersedia
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            Opportunity cost = nilai alternatif terbaik yang dikorbankan
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--purple);
+            "
+          >
+            Skala prioritas membantu alokasi sumber daya secara efisien
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--green);
+            "
+          >
+            Kelangkaan bisa disebabkan alam, populasi, atau distribusi
+          </li>
         </ul>
+        <a href="#ch2" class="btn btn-teal mt-4">Lanjut ke Chapter 2 →</a>
       </div>
-    </div>
-    <div class="fact-card mt-4">
-      <p>Pemerintah Indonesia menghabiskan Rp500+ triliun untuk subsidi BBM setiap tahun. Opportunity cost-nya? Uang itu bisa dipakai untuk membangun ribuan sekolah atau rumah sakit!</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch1-interaktif" style="background:var(--light-cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--green);color:#fff">Interaktif</div>
-    <h2 class="mb-3">Simulasi: <span style="color:var(--green)">Skala Prioritas</span> Negara</h2>
-    <p class="mb-3">Kamu adalah menteri keuangan. Alokasikan <strong>Rp1.000 Miliar</strong> ke sektor-sektor berikut.</p>
-    <div class="grid-2">
-      <div>
-        <div class="slider-container">
-          <label> Kesehatan: Rp<span id="valKesehatan">250</span> M</label>
-          <input type="range" min="0" max="1000" value="250" step="10" id="sliderKesehatan" oninput="updateResourceAlloc()">
+    <!-- ============ CHAPTER 2 ============ -->
+    <section
+      class="section hero-section"
+      id="ch2"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number" style="background: var(--coral)">
+              Chapter 2
+            </div>
+            <h1>
+              Supply<br />& <span style="color: var(--coral)">Demand</span>
+            </h1>
+            <p class="hook-question" style="border-left-color: var(--coral)">
+              "Kenapa harga cabai bisa Rp100.000/kg saat paceklik, tapi cuma
+              Rp20.000/kg saat panen?"
+            </p>
+            <p class="mb-3">
+              Hukum permintaan dan penawaran adalah fondasi paling dasar dalam
+              ekonomi. Ketika permintaan naik dan supply tetap → harga naik.
+            </p>
+            <a href="#ch2-materi" class="btn">Pelajari Lebih Lanjut ↓</a>
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" width="100%">
+              <line
+                x1="50"
+                y1="350"
+                x2="350"
+                y2="350"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <line
+                x1="50"
+                y1="350"
+                x2="50"
+                y2="50"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <path d="M80,80 L320,320" stroke="#FF6B6B" stroke-width="5" />
+              <text
+                x="330"
+                y="310"
+                font-size="16"
+                font-weight="900"
+                fill="#FF6B6B"
+              >
+                D
+              </text>
+              <path d="M80,320 L320,80" stroke="#4ECDC4" stroke-width="5" />
+              <text
+                x="330"
+                y="90"
+                font-size="16"
+                font-weight="900"
+                fill="#4ECDC4"
+              >
+                S
+              </text>
+              <circle
+                cx="200"
+                cy="200"
+                r="15"
+                fill="#FFE66D"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <text
+                x="225"
+                y="195"
+                font-size="14"
+                font-weight="900"
+                fill="#1A1A2E"
+              >
+                E
+              </text>
+              <text
+                x="30"
+                y="200"
+                font-size="12"
+                font-weight="700"
+                fill="#1A1A2E"
+                transform="rotate(-90,30,200)"
+              >
+                Harga
+              </text>
+              <text
+                x="200"
+                y="380"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="700"
+                fill="#1A1A2E"
+              >
+                Kuantitas
+              </text>
+            </svg>
+          </div>
         </div>
-        <div class="slider-container">
-          <label>📚 Pendidikan: Rp<span id="valPendidikan">250</span> M</label>
-          <input type="range" min="0" max="1000" value="250" step="10" id="sliderPendidikan" oninput="updateResourceAlloc()">
-        </div>
-        <div class="slider-container">
-          <label>🛣️ Infrastruktur: Rp<span id="valInfrastruktur">250</span> M</label>
-          <input type="range" min="0" max="1000" value="250" step="10" id="sliderInfrastruktur" oninput="updateResourceAlloc()">
-        </div>
-        <div class="slider-container">
-          <label>️ Pertahanan: Rp<span id="valPertahanan">100</span> M</label>
-          <input type="range" min="0" max="1000" value="100" step="10" id="sliderPertahanan" oninput="updateResourceAlloc()">
-        </div>
-        <div class="slider-container">
-          <label>🌾 Pertanian: Rp<span id="valPertanian">150</span> M</label>
-          <input type="range" min="0" max="1000" value="150" step="10" id="sliderPertanian" oninput="updateResourceAlloc()">
-        </div>
-        <p class="fw-bold mt-2">Total: Rp<span id="resourceTotal">1000</span> M <span id="resourceStatus" style="color:#888">(sesuai budget)</span></p>
       </div>
-      <div>
-        <h4 class="mb-2">📊 Dampak Pilihanmu:</h4>
-        <div class="card" id="impactDisplay" style="border-top:5px solid var(--green)">
-          <div class="mb-2"><span>🏥 Kesehatan: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugeKesehatan" style="width:50%;background:var(--coral)"></div><span class="gauge-label" id="gaugeLabelKesehatan">50%</span></div></div>
-          <div class="mb-2"><span> Pendidikan: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugePendidikan" style="width:50%;background:var(--purple)"></div><span class="gauge-label" id="gaugeLabelPendidikan">50%</span></div></div>
-          <div class="mb-2"><span>🛣️ Infrastruktur: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugeInfrastruktur" style="width:50%;background:var(--teal)"></div><span class="gauge-label" id="gaugeLabelInfrastruktur">50%</span></div></div>
-          <div class="mb-2"><span>🛡️ Keamanan: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugePertahanan" style="width:50%;background:var(--blue)"></div><span class="gauge-label" id="gaugeLabelPertahanan">50%</span></div></div>
-          <div class="mb-2"><span>🌾 Pangan: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugePertanian" style="width:50%;background:var(--green)"></div><span class="gauge-label" id="gaugeLabelPertanian">50%</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch1-contoh" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--orange);color:#fff">Contoh Nyata</div>
-    <h2 class="mb-3">Kelangkaan di <span style="color:var(--orange)">Dunia Nyata</span></h2>
-    <div class="slide-container" id="slideCh1">
-      <div class="slide-item card" style="border-top:5px solid var(--coral)">
-        <h4> Subsidi BBM Indonesia</h4>
-        <p>Pemerintah menghabiskan ratusan triliun untuk subsidi BBM. Ini adalah contoh kelangkaan anggaran dikarenakan uang itu terbatas, tapi kebutuhan subsidi sangat besar.</p>
+    <section class="section" id="ch2-materi" style="background: var(--cream)">
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--coral)">
+          Materi
+        </div>
+        <h2 class="mb-3">
+          Hukum Permintaan & <span style="color: var(--coral)">Penawaran</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-top: 5px solid var(--coral)">
+            <h4 class="mb-2">📉 Hukum Permintaan (Demand)</h4>
+            <p>
+              <strong
+                >Semakin tinggi harga, semakin rendah jumlah yang
+                diminta</strong
+              >
+              — ceteris paribus.
+            </p>
+            <p class="mt-2"><strong>Faktor yang memengaruhi:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 8px">
+              <li>Harga barang itu sendiri</li>
+              <li>Pendapatan konsumen</li>
+              <li>Selera dan tren</li>
+              <li>Harga barang substitusi</li>
+            </ul>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--teal)">
+            <h4 class="mb-2">📈 Hukum Penawaran (Supply)</h4>
+            <p>
+              <strong
+                >Semakin tinggi harga, semakin banyak jumlah yang
+                ditawarkan</strong
+              >
+              — ceteris paribus.
+            </p>
+            <p class="mt-2"><strong>Faktor yang memengaruhi:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 8px">
+              <li>Harga barang itu sendiri</li>
+              <li>Biaya produksi</li>
+              <li>Teknologi</li>
+              <li>Kondisi alam (cuaca, bencana)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fact-card mt-4">
+          <p>
+            Di Indonesia, harga cabai rawit bisa berfluktuasi dari Rp20.000/kg
+            saat panen raya hingga Rp150.000/kg saat musim hujan dan gagal
+            panen!
+          </p>
+        </div>
       </div>
-      <div class="slide-item card" style="border-top:5px solid var(--teal)">
-        <h4>🛒 Antrian Sembako</h4>
-        <p>Saat pandemi, antrian bantuan sembako mengular panjang. Bukti nyata kelangkaan: kebutuhan jauh lebih besar dari ketersediaan barang.</p>
-      </div>
-      <div class="slide-item card" style="border-top:5px solid var(--purple)">
-        <h4>🗺️ Ketimpangan Distribusi</h4>
-        <p>Pulau Jawa hanya 7% wilayah Indonesia tapi menampung 60% penduduk. Kelangkaan karena distribusi tidak merata.</p>
-      </div>
-      <div class="slide-item card" style="border-top:5px solid var(--green)">
-        <h4>⏰ Kelangkaan Waktu</h4>
-        <p>Waktu adalah sumber daya paling langka. Semua orang hanya punya 24 jam sehari. Bagaimana kamu mengalokasikannya?</p>
-      </div>
-    </div>
-    <div class="slide-indicator" id="slideIndCh1">
-      <div class="slide-dot active" onclick="scrollToSlide('slideCh1',0)"></div>
-      <div class="slide-dot" onclick="scrollToSlide('slideCh1',1)"></div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch1-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--teal);color:#fff">Ringkasan</div>
-    <h2 class="mb-4">Chapter 1: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--teal)">Kelangkaan = keinginan > sumber daya yang tersedia</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">Opportunity cost = nilai alternatif terbaik yang dikorbankan</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--purple)">Skala prioritas membantu alokasi sumber daya secara efisien</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--green)">Kelangkaan bisa disebabkan alam, populasi, atau distribusi</li>
-    </ul>
-    <a href="#ch2" class="btn btn-teal mt-4">Lanjut ke Chapter 2 →</a>
-  </div>
-</section>
-
-<!-- ============ CHAPTER 2 ============ -->
-<section class="section hero-section" id="ch2" style="background:var(--light-cream)">
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number" style="background:var(--coral)">Chapter 2</div>
-        <h1>Supply<br>& <span style="color:var(--coral)">Demand</span></h1>
-        <p class="hook-question" style="border-left-color:var(--coral)">"Kenapa harga cabai bisa Rp100.000/kg saat paceklik, tapi cuma Rp20.000/kg saat panen?"</p>
-        <p class="mb-3">Hukum permintaan dan penawaran adalah fondasi paling dasar dalam ekonomi. Ketika permintaan naik dan supply tetap → harga naik.</p>
-        <a href="#ch2-materi" class="btn">Pelajari Lebih Lanjut ↓</a>
+    <section
+      class="section"
+      id="ch2-interaktif"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--yellow); color: var(--dark)"
+        >
+          🎮 Mini-Game
+        </div>
+        <h2 class="mb-3">
+          Jadi
+          <span style="color: var(--yellow); text-shadow: 1px 1px 0 var(--dark)"
+            >Pedagang Cabai!</span
+          >
+        </h2>
+        <p class="mb-2">
+          Atur harga jual cabai kamu. Lihat berapa pembeli yang datang!
+        </p>
+        <p class="mb-3 small-text">
+          Harga beli modal: Rp15.000/kg. Kamu punya 60kg stok.
+        </p>
+        <div class="grid-2">
+          <div>
+            <div class="slider-container">
+              <label
+                >💲 Harga Jual: Rp<span id="gameHarga">25.000</span>/kg</label
+              >
+              <input
+                type="range"
+                min="15000"
+                max="100000"
+                value="25000"
+                step="1000"
+                id="sliderGameHarga"
+                oninput="updateTraderGame()"
+              />
+            </div>
+            <div class="card mt-3" style="border-top: 5px solid var(--yellow)">
+              <h4>📊 Hasil Penjualan</h4>
+              <p class="mt-2">
+                Pembeli datang:
+                <strong><span id="gameBuyers">75</span></strong> orang
+              </p>
+              <p>
+                Terjual: <strong><span id="gameSold">75</span></strong> kg
+              </p>
+              <p>
+                Pendapatan:
+                <strong>Rp<span id="gameRevenue">1.875.000</span></strong>
+              </p>
+              <p>
+                Keuntungan:
+                <strong style="color: var(--green)"
+                  >Rp<span id="gameProfit">750.000</span></strong
+                >
+              </p>
+            </div>
+          </div>
+          <div>
+            <h4 class="mb-2">👥 Visualisasi Pembeli:</h4>
+            <div
+              class="game-area"
+              id="gameBuyerArea"
+              style="min-height: 250px"
+            ></div>
+          </div>
+        </div>
       </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" width="100%">
-          <line x1="50" y1="350" x2="350" y2="350" stroke="#1A1A2E" stroke-width="3"/>
-          <line x1="50" y1="350" x2="50" y2="50" stroke="#1A1A2E" stroke-width="3"/>
-          <path d="M80,80 L320,320" stroke="#FF6B6B" stroke-width="5"/>
-          <text x="330" y="310" font-size="16" font-weight="900" fill="#FF6B6B">D</text>
-          <path d="M80,320 L320,80" stroke="#4ECDC4" stroke-width="5"/>
-          <text x="330" y="90" font-size="16" font-weight="900" fill="#4ECDC4">S</text>
-          <circle cx="200" cy="200" r="15" fill="#FFE66D" stroke="#1A1A2E" stroke-width="3"/>
-          <text x="225" y="195" font-size="14" font-weight="900" fill="#1A1A2E">E</text>
-          <text x="30" y="200" font-size="12" font-weight="700" fill="#1A1A2E" transform="rotate(-90,30,200)">Harga</text>
-          <text x="200" y="380" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1A2E">Kuantitas</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch2-materi" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--coral)">Materi</div>
-    <h2 class="mb-3">Hukum Permintaan & <span style="color:var(--coral)">Penawaran</span></h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:5px solid var(--coral)">
-        <h4 class="mb-2">📉 Hukum Permintaan (Demand)</h4>
-        <p><strong>Semakin tinggi harga, semakin rendah jumlah yang diminta</strong> — ceteris paribus.</p>
-        <p class="mt-2"><strong>Faktor yang memengaruhi:</strong></p>
-        <ul style="margin-left:20px;margin-top:8px">
-          <li>Harga barang itu sendiri</li>
-          <li>Pendapatan konsumen</li>
-          <li>Selera dan tren</li>
-          <li>Harga barang substitusi</li>
+    <section
+      class="section"
+      id="ch2-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--coral)">
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 2: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            Hukum permintaan: harga ↑ → permintaan ↓
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--teal);
+            "
+          >
+            Hukum penawaran: harga ↑ → penawaran ↑
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--yellow);
+            "
+          >
+            Titik keseimbangan = permintaan = penawaran
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--green);
+            "
+          >
+            Harga pasar ditentukan interaksi supply dan demand
+          </li>
         </ul>
+        <a href="#ch3" class="btn mt-4" style="background: var(--purple)"
+          >Lanjut ke Chapter 3 →</a
+        >
       </div>
-      <div class="card" style="border-top:5px solid var(--teal)">
-        <h4 class="mb-2">📈 Hukum Penawaran (Supply)</h4>
-        <p><strong>Semakin tinggi harga, semakin banyak jumlah yang ditawarkan</strong> — ceteris paribus.</p>
-        <p class="mt-2"><strong>Faktor yang memengaruhi:</strong></p>
-        <ul style="margin-left:20px;margin-top:8px">
-          <li>Harga barang itu sendiri</li>
-          <li>Biaya produksi</li>
-          <li>Teknologi</li>
-          <li>Kondisi alam (cuaca, bencana)</li>
+    </section>
+
+    <!-- ============ CHAPTER 3 ============ -->
+    <section
+      class="section hero-section"
+      id="ch3"
+      style="background: var(--cream)"
+    >
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number" style="background: var(--purple)">
+              Chapter 3
+            </div>
+            <h1>
+              Harga<br />& <span style="color: var(--purple)">Pasar</span>
+            </h1>
+            <p class="hook-question" style="border-left-color: var(--purple)">
+              "Kenapa pemerintah menetapkan harga eceran tertinggi (HET) untuk
+              beras?"
+            </p>
+            <p class="mb-3">
+              Pasar tidak selalu berjalan bebas. Kadang pemerintah perlu
+              intervensi melalui <strong>price floor</strong> dan
+              <strong>price ceiling</strong> untuk melindungi masyarakat.
+            </p>
+            <a href="#ch3-materi" class="btn btn-teal"
+              >Pelajari Lebih Lanjut ↓</a
+            >
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" width="100%">
+              <rect
+                x="60"
+                y="120"
+                width="280"
+                height="160"
+                rx="12"
+                stroke="#A78BFA"
+                fill="none"
+                stroke-width="4"
+              />
+              <line
+                x1="60"
+                y1="120"
+                x2="340"
+                y2="120"
+                stroke="#A78BFA"
+                stroke-width="4"
+              />
+              <path
+                d="M40,120 L200,40 L360,120"
+                stroke="#A78BFA"
+                fill="none"
+                stroke-width="4"
+              />
+              <rect
+                x="100"
+                y="160"
+                width="70"
+                height="30"
+                rx="6"
+                stroke="#FF6B6B"
+                fill="#FF6B6B"
+                stroke-width="2"
+              />
+              <text
+                x="135"
+                y="180"
+                text-anchor="middle"
+                font-size="11"
+                font-weight="900"
+                fill="#fff"
+              >
+                HET
+              </text>
+              <rect
+                x="230"
+                y="160"
+                width="70"
+                height="30"
+                rx="6"
+                stroke="#4ECDC4"
+                fill="#4ECDC4"
+                stroke-width="2"
+              />
+              <text
+                x="265"
+                y="180"
+                text-anchor="middle"
+                font-size="11"
+                font-weight="900"
+                fill="#fff"
+              >
+                Rp12K
+              </text>
+              <circle
+                cx="130"
+                cy="240"
+                r="25"
+                stroke="#FFE66D"
+                fill="#FFE66D"
+                stroke-width="3"
+              />
+              <text x="130" y="246" text-anchor="middle" font-size="16">
+                🌾
+              </text>
+              <circle
+                cx="200"
+                cy="240"
+                r="25"
+                stroke="#FFE66D"
+                fill="#FFE66D"
+                stroke-width="3"
+              />
+              <text x="200" y="246" text-anchor="middle" font-size="16">
+                🌾
+              </text>
+              <circle
+                cx="270"
+                cy="240"
+                r="25"
+                stroke="#FFE66D"
+                fill="#FFE66D"
+                stroke-width="3"
+              />
+              <text x="270" y="246" text-anchor="middle" font-size="16"></text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ch3-materi" style="background: var(--gray)">
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--purple)">
+          Materi
+        </div>
+        <h2 class="mb-3">
+          Keseimbangan Pasar &
+          <span style="color: var(--purple)">Intervensi Harga</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-top: 5px solid var(--purple)">
+            <h4 class="mb-2">⚖️ Keseimbangan Pasar</h4>
+            <p>
+              Keseimbangan terjadi ketika
+              <strong>jumlah yang diminta = jumlah yang ditawarkan</strong>.
+              Pada titik ini, harga stabil.
+            </p>
+            <p class="mt-2">
+              <strong>Surplus konsumen:</strong> selisih antara yang bersedia
+              dibayar dengan harga pasar.
+            </p>
+            <p class="mt-2">
+              <strong>Surplus produsen:</strong> selisih antara harga pasar
+              dengan biaya minimum.
+            </p>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--coral)">
+            <h4 class="mb-2">🏛️ Intervensi Pemerintah</h4>
+            <p>
+              <strong>Price Ceiling:</strong> Harga maksimum. Contoh: HET beras,
+              tarif listrik subsidi → menyebabkan <strong>shortage</strong>.
+            </p>
+            <p class="mt-2">
+              <strong>Price Floor:</strong> Harga minimum. Contoh: UMR, harga
+              gabah pemerintah → menyebabkan <strong>surplus</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="fact-card mt-4">
+          <p>
+            Pada 2023, pemerintah menetapkan HET beras medium Rp11.800/kg dan
+            beras premium Rp14.800/kg.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch3-interaktif"
+      style="background: var(--cream)"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--pink)">
+          Interaktif
+        </div>
+        <h2 class="mb-3">
+          Simulasi: <span style="color: var(--pink)">Surplus & Shortage</span>
+        </h2>
+        <p class="mb-3">
+          Geser slider harga dan lihat bagaimana kondisi pasar berubah.
+        </p>
+        <div class="grid-2">
+          <div>
+            <div class="slider-container">
+              <label
+                >💲 Harga Pasar: Rp<span id="priceMarket">50.000</span></label
+              >
+              <input
+                type="range"
+                min="10000"
+                max="100000"
+                value="50000"
+                step="1000"
+                id="sliderPriceMarket"
+                oninput="updatePriceSim()"
+              />
+            </div>
+            <div class="card mt-3" style="border-top: 5px solid var(--pink)">
+              <h4 class="mb-2">📊 Analisis Pasar</h4>
+              <p>
+                Permintaan: <strong><span id="simDemand">75</span></strong> unit
+              </p>
+              <p>
+                Penawaran: <strong><span id="simSupply">75</span></strong> unit
+              </p>
+              <p class="mt-2">
+                Status:
+                <strong id="simStatus" style="font-size: 1.1rem"
+                  >⚖️ Seimbang</strong
+                >
+              </p>
+              <p>
+                Surplus Konsumen:
+                <strong>Rp<span id="simConsumerSurplus">0</span></strong>
+              </p>
+              <p>
+                Surplus Produsen:
+                <strong>Rp<span id="simProducerSurplus">0</span></strong>
+              </p>
+            </div>
+          </div>
+          <div>
+            <h4 class="mb-2">📈 Visualisasi Kurva:</h4>
+            <svg
+              viewBox="0 0 400 300"
+              width="100%"
+              style="
+                border: 3px solid var(--dark);
+                padding: 10px;
+                background: #fff;
+                border-radius: 12px;
+              "
+            >
+              <line
+                x1="40"
+                y1="260"
+                x2="380"
+                y2="260"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <line
+                x1="40"
+                y1="260"
+                x2="40"
+                y2="20"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <path
+                d="M60,40 L340,240"
+                stroke="#FF6B6B"
+                stroke-width="3"
+                stroke-dasharray="6,3"
+              />
+              <text
+                x="350"
+                y="245"
+                font-size="16"
+                font-weight="900"
+                fill="#FF6B6B"
+              >
+                D
+              </text>
+              <path
+                d="M60,240 L340,40"
+                stroke="#4ECDC4"
+                stroke-width="3"
+                stroke-dasharray="6,3"
+              />
+              <text
+                x="350"
+                y="50"
+                font-size="16"
+                font-weight="900"
+                fill="#4ECDC4"
+              >
+                S
+              </text>
+              <line
+                id="priceLine"
+                x1="40"
+                y1="140"
+                x2="340"
+                y2="140"
+                stroke="#A78BFA"
+                stroke-width="2"
+              />
+              <text
+                id="priceLabel"
+                x="350"
+                y="145"
+                font-size="12"
+                font-weight="700"
+                fill="#A78BFA"
+              >
+                P
+              </text>
+              <circle
+                cx="200"
+                cy="140"
+                r="8"
+                fill="#FFE66D"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <text
+                x="200"
+                y="290"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="700"
+                fill="#1A1A2E"
+              >
+                Kuantitas
+              </text>
+              <text
+                x="15"
+                y="140"
+                text-anchor="middle"
+                font-size="11"
+                font-weight="700"
+                fill="#1A1A2E"
+                transform="rotate(-90,15,140)"
+              >
+                Harga
+              </text>
+              <polygon
+                points="60,40 200,140 60,140"
+                fill="rgba(255,107,107,0.2)"
+                stroke="#FF6B6B"
+                stroke-width="1"
+              />
+              <polygon
+                points="60,140 200,140 60,240"
+                fill="rgba(78,205,196,0.2)"
+                stroke="#4ECDC4"
+                stroke-width="1"
+              />
+              <text
+                x="110"
+                y="110"
+                font-size="12"
+                font-weight="900"
+                fill="#FF6B6B"
+              >
+                CS
+              </text>
+              <text
+                x="110"
+                y="185"
+                font-size="12"
+                font-weight="900"
+                fill="#4ECDC4"
+              >
+                PS
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch3-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--purple)">
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 3: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--purple);
+            "
+          >
+            Keseimbangan pasar = permintaan = penawaran
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            Price ceiling → shortage (kekurangan barang)
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--teal);
+            "
+          >
+            Price floor → surplus (kelebihan barang)
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--yellow);
+            "
+          >
+            Intervensi harga bisa menciptakan distorsi pasar
+          </li>
         </ul>
+        <a href="#ch4" class="btn btn-yellow mt-4">Lanjut ke Chapter 4 →</a>
       </div>
-    </div>
-    <div class="fact-card mt-4">
-      <p>Di Indonesia, harga cabai rawit bisa berfluktuasi dari Rp20.000/kg saat panen raya hingga Rp150.000/kg saat musim hujan dan gagal panen!</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch2-interaktif" style="background:var(--light-cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--yellow);color:var(--dark)">🎮 Mini-Game</div>
-    <h2 class="mb-3">Jadi <span style="color:var(--yellow);text-shadow:1px 1px 0 var(--dark)">Pedagang Cabai!</span></h2>
-    <p class="mb-2">Atur harga jual cabai kamu. Lihat berapa pembeli yang datang!</p>
-    <p class="mb-3 small-text">Harga beli modal: Rp15.000/kg. Kamu punya 60kg stok.</p>
-    <div class="grid-2">
-      <div>
-        <div class="slider-container">
-          <label>💲 Harga Jual: Rp<span id="gameHarga">25.000</span>/kg</label>
-          <input type="range" min="15000" max="100000" value="25000" step="1000" id="sliderGameHarga" oninput="updateTraderGame()">
-        </div>
-        <div class="card mt-3" style="border-top:5px solid var(--yellow)">
-          <h4>📊 Hasil Penjualan</h4>
-          <p class="mt-2">Pembeli datang: <strong><span id="gameBuyers">75</span></strong> orang</p>
-          <p>Terjual: <strong><span id="gameSold">75</span></strong> kg</p>
-          <p>Pendapatan: <strong>Rp<span id="gameRevenue">1.875.000</span></strong></p>
-          <p>Keuntungan: <strong style="color:var(--green)">Rp<span id="gameProfit">750.000</span></strong></p>
-        </div>
-      </div>
-      <div>
-        <h4 class="mb-2">👥 Visualisasi Pembeli:</h4>
-        <div class="game-area" id="gameBuyerArea" style="min-height:250px"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch2-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--coral)">Ringkasan</div>
-    <h2 class="mb-4">Chapter 2: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">Hukum permintaan: harga ↑ → permintaan ↓</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--teal)">Hukum penawaran: harga ↑ → penawaran ↑</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--yellow)">Titik keseimbangan = permintaan = penawaran</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--green)">Harga pasar ditentukan interaksi supply dan demand</li>
-    </ul>
-    <a href="#ch3" class="btn mt-4" style="background:var(--purple)">Lanjut ke Chapter 3 →</a>
-  </div>
-</section>
-
-<!-- ============ CHAPTER 3 ============ -->
-<section class="section hero-section" id="ch3" style="background:var(--cream)">
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number" style="background:var(--purple)">Chapter 3</div>
-        <h1>Harga<br>& <span style="color:var(--purple)">Pasar</span></h1>
-        <p class="hook-question" style="border-left-color:var(--purple)">"Kenapa pemerintah menetapkan harga eceran tertinggi (HET) untuk beras?"</p>
-        <p class="mb-3">Pasar tidak selalu berjalan bebas. Kadang pemerintah perlu intervensi melalui <strong>price floor</strong> dan <strong>price ceiling</strong> untuk melindungi masyarakat.</p>
-        <a href="#ch3-materi" class="btn btn-teal">Pelajari Lebih Lanjut ↓</a>
-      </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" width="100%">
-          <rect x="60" y="120" width="280" height="160" rx="12" stroke="#A78BFA" fill="none" stroke-width="4"/>
-          <line x1="60" y1="120" x2="340" y2="120" stroke="#A78BFA" stroke-width="4"/>
-          <path d="M40,120 L200,40 L360,120" stroke="#A78BFA" fill="none" stroke-width="4"/>
-          <rect x="100" y="160" width="70" height="30" rx="6" stroke="#FF6B6B" fill="#FF6B6B" stroke-width="2"/>
-          <text x="135" y="180" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">HET</text>
-          <rect x="230" y="160" width="70" height="30" rx="6" stroke="#4ECDC4" fill="#4ECDC4" stroke-width="2"/>
-          <text x="265" y="180" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">Rp12K</text>
-          <circle cx="130" cy="240" r="25" stroke="#FFE66D" fill="#FFE66D" stroke-width="3"/>
-          <text x="130" y="246" text-anchor="middle" font-size="16">🌾</text>
-          <circle cx="200" cy="240" r="25" stroke="#FFE66D" fill="#FFE66D" stroke-width="3"/>
-          <text x="200" y="246" text-anchor="middle" font-size="16">🌾</text>
-          <circle cx="270" cy="240" r="25" stroke="#FFE66D" fill="#FFE66D" stroke-width="3"/>
-          <text x="270" y="246" text-anchor="middle" font-size="16"></text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch3-materi" style="background:var(--gray)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--purple)">Materi</div>
-    <h2 class="mb-3">Keseimbangan Pasar & <span style="color:var(--purple)">Intervensi Harga</span></h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:5px solid var(--purple)">
-        <h4 class="mb-2">⚖️ Keseimbangan Pasar</h4>
-        <p>Keseimbangan terjadi ketika <strong>jumlah yang diminta = jumlah yang ditawarkan</strong>. Pada titik ini, harga stabil.</p>
-        <p class="mt-2"><strong>Surplus konsumen:</strong> selisih antara yang bersedia dibayar dengan harga pasar.</p>
-        <p class="mt-2"><strong>Surplus produsen:</strong> selisih antara harga pasar dengan biaya minimum.</p>
-      </div>
-      <div class="card" style="border-top:5px solid var(--coral)">
-        <h4 class="mb-2">🏛️ Intervensi Pemerintah</h4>
-        <p><strong>Price Ceiling:</strong> Harga maksimum. Contoh: HET beras, tarif listrik subsidi → menyebabkan <strong>shortage</strong>.</p>
-        <p class="mt-2"><strong>Price Floor:</strong> Harga minimum. Contoh: UMR, harga gabah pemerintah → menyebabkan <strong>surplus</strong>.</p>
-      </div>
-    </div>
-    <div class="fact-card mt-4">
-      <p>Pada 2023, pemerintah menetapkan HET beras medium Rp12.800/kg dan beras premium Rp13.700/kg.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch3-interaktif" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--pink)">Interaktif</div>
-    <h2 class="mb-3">Simulasi: <span style="color:var(--pink)">Surplus & Shortage</span></h2>
-    <p class="mb-3">Geser slider harga dan lihat bagaimana kondisi pasar berubah.</p>
-    <div class="grid-2">
-      <div>
-        <div class="slider-container">
-          <label>💲 Harga Pasar: Rp<span id="priceMarket">50.000</span></label>
-          <input type="range" min="10000" max="100000" value="50000" step="1000" id="sliderPriceMarket" oninput="updatePriceSim()">
-        </div>
-        <div class="card mt-3" style="border-top:5px solid var(--pink)">
-          <h4 class="mb-2">📊 Analisis Pasar</h4>
-          <p>Permintaan: <strong><span id="simDemand">75</span></strong> unit</p>
-          <p>Penawaran: <strong><span id="simSupply">75</span></strong> unit</p>
-          <p class="mt-2">Status: <strong id="simStatus" style="font-size:1.1rem">⚖️ Seimbang</strong></p>
-          <p>Surplus Konsumen: <strong>Rp<span id="simConsumerSurplus">0</span></strong></p>
-          <p>Surplus Produsen: <strong>Rp<span id="simProducerSurplus">0</span></strong></p>
+    <!-- ============ CHAPTER 4 ============ -->
+    <section
+      class="section hero-section"
+      id="ch4"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number" style="background: var(--orange)">
+              Chapter 4
+            </div>
+            <h1>
+              Uang &<br /><span style="color: var(--orange)">Inflasi</span>
+            </h1>
+            <p class="hook-question" style="border-left-color: var(--orange)">
+              "Kenapa Rp100.000 tahun 1998 terasa seperti Rp1.000.000 sekarang?"
+            </p>
+            <p class="mb-3">
+              Inflasi adalah kenaikan harga barang dan jasa secara umum dan
+              terus-menerus. Inflasi membuat daya beli uang menurun.
+            </p>
+            <a href="#ch4-materi" class="btn btn-yellow"
+              >Pelajari Lebih Lanjut ↓</a
+            >
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" width="100%">
+              <rect
+                x="80"
+                y="60"
+                width="240"
+                height="140"
+                rx="12"
+                stroke="#FB923C"
+                fill="none"
+                stroke-width="4"
+              />
+              <text
+                x="200"
+                y="120"
+                text-anchor="middle"
+                font-size="36"
+                font-weight="900"
+                fill="#FB923C"
+              >
+                Rp100K
+              </text>
+              <text
+                x="200"
+                y="160"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="700"
+                fill="#FB923C"
+              >
+                1998
+              </text>
+              <path d="M200,200 L200,240" stroke="#1A1A2E" stroke-width="3" />
+              <path d="M190,230 L200,245 L210,230" fill="#1A1A2E" />
+              <rect
+                x="120"
+                y="260"
+                width="160"
+                height="90"
+                rx="10"
+                stroke="#FF6B6B"
+                fill="none"
+                stroke-width="3"
+              />
+              <text
+                x="200"
+                y="305"
+                text-anchor="middle"
+                font-size="24"
+                font-weight="900"
+                fill="#FF6B6B"
+              >
+                Rp100K
+              </text>
+              <text
+                x="200"
+                y="335"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="700"
+                fill="#FF6B6B"
+              >
+                2024
+              </text>
+              <path
+                d="M300,100 L300,280"
+                stroke="#A78BFA"
+                stroke-width="3"
+                stroke-dasharray="8,4"
+              />
+              <text
+                x="310"
+                y="190"
+                font-size="12"
+                font-weight="900"
+                fill="#A78BFA"
+              >
+                DAYA BELI ↓
+              </text>
+              <circle
+                cx="310"
+                cy="195"
+                r="10"
+                fill="none"
+                stroke="#A78BFA"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
         </div>
       </div>
-      <div>
-        <h4 class="mb-2">📈 Visualisasi Kurva:</h4>
-        <svg viewBox="0 0 400 300" width="100%" style="border:3px solid var(--dark);padding:10px;background:#fff;border-radius:12px">
-          <line x1="40" y1="260" x2="380" y2="260" stroke="#1A1A2E" stroke-width="3"/>
-          <line x1="40" y1="260" x2="40" y2="20" stroke="#1A1A2E" stroke-width="3"/>
-          <path d="M60,40 L340,240" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="6,3"/>
-          <text x="350" y="245" font-size="16" font-weight="900" fill="#FF6B6B">D</text>
-          <path d="M60,240 L340,40" stroke="#4ECDC4" stroke-width="3" stroke-dasharray="6,3"/>
-          <text x="350" y="50" font-size="16" font-weight="900" fill="#4ECDC4">S</text>
-          <line id="priceLine" x1="40" y1="140" x2="340" y2="140" stroke="#A78BFA" stroke-width="2"/>
-          <text id="priceLabel" x="350" y="145" font-size="12" font-weight="700" fill="#A78BFA">P</text>
-          <circle cx="200" cy="140" r="8" fill="#FFE66D" stroke="#1A1A2E" stroke-width="3"/>
-          <text x="200" y="290" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1A2E">Kuantitas</text>
-          <text x="15" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1A2E" transform="rotate(-90,15,140)">Harga</text>
-          <polygon points="60,40 200,140 60,140" fill="rgba(255,107,107,0.2)" stroke="#FF6B6B" stroke-width="1"/>
-          <polygon points="60,140 200,140 60,240" fill="rgba(78,205,196,0.2)" stroke="#4ECDC4" stroke-width="1"/>
-          <text x="110" y="110" font-size="12" font-weight="900" fill="#FF6B6B">CS</text>
-          <text x="110" y="185" font-size="12" font-weight="900" fill="#4ECDC4">PS</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch3-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--purple)">Ringkasan</div>
-    <h2 class="mb-4">Chapter 3: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--purple)">Keseimbangan pasar = permintaan = penawaran</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">Price ceiling → shortage (kekurangan barang)</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--teal)">Price floor → surplus (kelebihan barang)</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--yellow)">Intervensi harga bisa menciptakan distorsi pasar</li>
-    </ul>
-    <a href="#ch4" class="btn btn-yellow mt-4">Lanjut ke Chapter 4 →</a>
-  </div>
-</section>
-
-<!-- ============ CHAPTER 4 ============ -->
-<section class="section hero-section" id="ch4" style="background:var(--light-cream)">
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number" style="background:var(--orange)">Chapter 4</div>
-        <h1>Uang &<br><span style="color:var(--orange)">Inflasi</span></h1>
-        <p class="hook-question" style="border-left-color:var(--orange)">"Kenapa Rp100.000 tahun 1998 terasa seperti Rp1.000.000 sekarang?"</p>
-        <p class="mb-3">Inflasi adalah kenaikan harga barang dan jasa secara umum dan terus-menerus. Inflasi membuat daya beli uang menurun.</p>
-        <a href="#ch4-materi" class="btn btn-yellow">Pelajari Lebih Lanjut ↓</a>
+    <section class="section" id="ch4-materi" style="background: var(--cream)">
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--orange)">
+          Materi
+        </div>
+        <h2 class="mb-3">
+          Fungsi Uang,
+          <span style="color: var(--orange)">Inflasi & Deflasi</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-top: 5px solid var(--orange)">
+            <h4 class="mb-2">💰 Fungsi Uang</h4>
+            <ul style="margin-left: 20px">
+              <p>
+                <strong>Alat tukar:</strong> Memudahkan transaksi tanpa barter
+              </p>
+              <p class="mt-2">
+                <strong>Satuan hitung:</strong> Menentukan nilai barang
+              </p>
+              <p class="mt-2">
+                <strong>Penyimpan nilai:</strong> Bisa ditabung untuk masa depan
+              </p>
+              <p class="mt-2">
+                <strong>Alat pembayaran:</strong> Melunasi utang
+              </p>
+            </ul>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--coral)">
+            <h4 class="mb-2">📊 Inflasi & Deflasi</h4>
+            <p>
+              <strong>Inflasi:</strong> Kenaikan harga umum. Inflasi moderat
+              (2-4%) itu sehat.
+            </p>
+            <p class="mt-2">
+              <strong>Deflasi:</strong> Penurunan harga umum. Terdengar bagus,
+              tapi bisa memicu resesi.
+            </p>
+            <p class="mt-2">
+              <strong>Penyebab inflasi:</strong> demand-pull, cost-push, money
+              supply berlebih.
+            </p>
+          </div>
+        </div>
+        <div
+          class="fact-card mt-4"
+          style="background: var(--coral); color: #fff"
+        >
+          <p style="color: #fff">
+            Pada krisis 1998, inflasi Indonesia mencapai 77,63%! Bandingkan
+            dengan inflasi 2023 yang "hanya" 2,61%.
+          </p>
+        </div>
       </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" width="100%">
-          <rect x="80" y="60" width="240" height="140" rx="12" stroke="#FB923C" fill="none" stroke-width="4"/>
-          <text x="200" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#FB923C">Rp100K</text>
-          <text x="200" y="160" text-anchor="middle" font-size="14" font-weight="700" fill="#FB923C">1998</text>
-          <path d="M200,200 L200,240" stroke="#1A1A2E" stroke-width="3"/>
-          <path d="M190,230 L200,245 L210,230" fill="#1A1A2E"/>
-          <rect x="120" y="260" width="160" height="90" rx="10" stroke="#FF6B6B" fill="none" stroke-width="3"/>
-          <text x="200" y="305" text-anchor="middle" font-size="24" font-weight="900" fill="#FF6B6B">Rp100K</text>
-          <text x="200" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#FF6B6B">2024</text>
-          <path d="M300,100 L300,280" stroke="#A78BFA" stroke-width="3" stroke-dasharray="8,4"/>
-          <text x="310" y="190" font-size="12" font-weight="900" fill="#A78BFA">DAYA BELI ↓</text>
-          <circle cx="310" cy="195" r="10" fill="none" stroke="#A78BFA" stroke-width="2"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch4-materi" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--orange)">Materi</div>
-    <h2 class="mb-3">Fungsi Uang, <span style="color:var(--orange)">Inflasi & Deflasi</span></h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:5px solid var(--orange)">
-        <h4 class="mb-2">💰 Fungsi Uang</h4>
-        <ul style="margin-left:20px">
-          <p><strong>Alat tukar:</strong> Memudahkan transaksi tanpa barter</p>
-          <p class="mt-2"><strong>Satuan hitung:</strong> Menentukan nilai barang</p>
-          <p class="mt-2"><strong>Penyimpan nilai:</strong> Bisa ditabung untuk masa depan</p>
-          <p class="mt-2"><strong>Alat pembayaran:</strong> Melunasi utang</p>
+    <section
+      class="section"
+      id="ch4-interaktif"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--orange); color: #fff"
+        >
+          Mini-Game
+        </div>
+        <h2 class="mb-3">
+          ⏰ <span style="color: var(--orange)">Mesin Waktu</span> Harga
+        </h2>
+        <p class="mb-2">
+          Masukkan nominal uang dan tahun. Lihat berapa nilai riilnya di tahun
+          2024!
+        </p>
+        <div
+          class="card"
+          style="
+            max-width: 500px;
+            margin: 0 auto;
+            border-top: 5px solid var(--orange);
+          "
+        >
+          <div
+            style="
+              font-family: &quot;Noto Sans&quot;, sans-serif;
+              font-size: clamp(1rem, 2vw, 1.5rem);
+              padding: 20px;
+              border: var(--border-thicker);
+              text-align: center;
+              margin: 16px 0;
+              background: var(--orange);
+              color: #fff;
+              border-radius: 12px;
+              font-weight: 900;
+            "
+          >
+            Rp<span id="machineResult">100.000</span>
+          </div>
+          <div class="slider-container">
+            <label
+              >💵 Nominal: Rp<span id="machineNominal">100.000</span></label
+            >
+            <input
+              type="range"
+              min="1000"
+              max="10000000"
+              value="100000"
+              step="1000"
+              id="sliderMachineNominal"
+              oninput="updateInflationMachine()"
+            />
+          </div>
+          <div class="slider-container">
+            <label>📅 Tahun Asal: <span id="machineYear">1998</span></label>
+            <input
+              type="range"
+              min="1990"
+              max="2023"
+              value="1998"
+              step="1"
+              id="sliderMachineYear"
+              oninput="updateInflationMachine()"
+            />
+          </div>
+          <div class="card mt-3" style="border-top: 5px solid var(--teal)">
+            <h4>📊 Hasil Konversi</h4>
+            <p class="mt-2">
+              Rp<span id="machineInput">100.000</span> di tahun
+              <span id="machineYearFrom">1998</span>
+            </p>
+            <p>
+              Setara dengan
+              <strong style="font-size: 1.3rem; color: var(--coral)"
+                >Rp<span id="machineEquivalent">850.000</span></strong
+              >
+              di tahun 2024
+            </p>
+            <p class="mt-2">
+              Kumulatif inflasi:
+              <strong style="color: var(--coral)"
+                ><span id="machineInflation">750</span>%</strong
+              >
+            </p>
+            <p>
+              Daya beli menurun:
+              <strong style="color: var(--coral)"
+                ><span id="machineLoss">88,2</span>%</strong
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch4-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--orange)">
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 4: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--orange);
+            "
+          >
+            Uang = alat tukar, satuan hitung, penyimpan nilai
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            Inflasi = kenaikan harga umum → daya beli turun
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--teal);
+            "
+          >
+            Inflasi moderat (2-4%) itu sehat
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--purple);
+            "
+          >
+            Deflasi juga berbahaya, bisa memicu resesi
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--yellow);
+            "
+          >
+            Krisis 1998: inflasi 77,63%!
+          </li>
         </ul>
+        <a
+          href="#ch5"
+          class="btn mt-4"
+          style="background: var(--pink); color: #fff"
+          >Lanjut ke Chapter 5 →</a
+        >
       </div>
-      <div class="card" style="border-top:5px solid var(--coral)">
-        <h4 class="mb-2">📊 Inflasi & Deflasi</h4>
-        <p><strong>Inflasi:</strong> Kenaikan harga umum. Inflasi moderat (2-4%) itu sehat.</p>
-        <p class="mt-2"><strong>Deflasi:</strong> Penurunan harga umum. Terdengar bagus, tapi bisa memicu resesi.</p>
-        <p class="mt-2"><strong>Penyebab inflasi:</strong> demand-pull, cost-push, money supply berlebih.</p>
-      </div>
-    </div>
-    <div class="fact-card mt-4" style="background:var(--coral);color:#fff">
-      <p style="color:#fff">Pada krisis 1998, inflasi Indonesia mencapai 77,63%! Bandingkan dengan inflasi 2023 yang "hanya" 2,61%.</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch4-interaktif" style="background:var(--light-cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--orange);color:#fff"> Mini-Game</div>
-    <h2 class="mb-3">⏰ <span style="color:var(--orange)">Mesin Waktu</span> Harga</h2>
-    <p class="mb-2">Masukkan nominal uang dan tahun. Lihat berapa nilai riilnya di tahun 2024!</p>
-    <div class="card" style="max-width:500px;margin:0 auto;border-top:5px solid var(--orange)">
-      <div style="font-family:'Noto Sans',sans-serif;font-size:clamp(1rem,2vw,1.5rem);padding:20px;border:var(--border-thicker);text-align:center;margin:16px 0;background:var(--orange);color:#fff;border-radius:12px;font-weight:900">
-        Rp<span id="machineResult">100.000</span>
+    <!-- ============ CHAPTER 5 ============ -->
+    <section
+      class="section hero-section"
+      id="ch5"
+      style="background: var(--cream)"
+    >
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number" style="background: var(--pink)">
+              Chapter 5
+            </div>
+            <h1>Sistem<br /><span style="color: var(--pink)">Ekonomi</span></h1>
+            <p class="hook-question" style="border-left-color: var(--pink)">
+              "Kenapa Korea Utara kelaparan sementara Korea Selatan jadi negara
+              maju?"
+            </p>
+            <p class="mb-3">
+              Sistem ekonomi menentukan bagaimana suatu negara mengatur
+              produksi, distribusi, dan konsumsi. Pilihannya berdampak besar.
+            </p>
+            <a href="#ch5-materi" class="btn btn-green"
+              >Pelajari Lebih Lanjut ↓</a
+            >
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" width="100%">
+              <rect
+                x="20"
+                y="80"
+                width="110"
+                height="240"
+                rx="10"
+                stroke="#FF6B6B"
+                fill="none"
+                stroke-width="3"
+              />
+              <rect
+                x="145"
+                y="80"
+                width="110"
+                height="240"
+                rx="10"
+                stroke="#4ECDC4"
+                fill="none"
+                stroke-width="3"
+              />
+              <rect
+                x="270"
+                y="80"
+                width="110"
+                height="240"
+                rx="10"
+                stroke="#A78BFA"
+                fill="none"
+                stroke-width="3"
+              />
+              <text
+                x="75"
+                y="60"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="900"
+                fill="#FF6B6B"
+              >
+                KAPITALIS
+              </text>
+              <text
+                x="200"
+                y="60"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="900"
+                fill="#4ECDC4"
+              >
+                SOSIALIS
+              </text>
+              <text
+                x="325"
+                y="60"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="900"
+                fill="#A78BFA"
+              >
+                CAMPURAN
+              </text>
+              <text x="75" y="140" text-anchor="middle" font-size="30">🏪</text>
+              <text x="200" y="140" text-anchor="middle" font-size="30">
+                🏛️
+              </text>
+              <text x="325" y="140" text-anchor="middle" font-size="30">
+                ⚖️
+              </text>
+              <text
+                x="75"
+                y="190"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#FF6B6B"
+              >
+                Pasar Bebas
+              </text>
+              <text
+                x="200"
+                y="190"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#4ECDC4"
+              >
+                Negatur
+              </text>
+              <text
+                x="325"
+                y="190"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#A78BFA"
+              >
+                Pasar + Negara
+              </text>
+              <text
+                x="75"
+                y="220"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#FF6B6B"
+              >
+                Persaingan
+              </text>
+              <text
+                x="200"
+                y="220"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#4ECDC4"
+              >
+                Milik Negara
+              </text>
+              <text
+                x="325"
+                y="220"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#A78BFA"
+              >
+                Regulasi
+              </text>
+              <text
+                x="75"
+                y="250"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#FF6B6B"
+              >
+                Laba = Tujuan
+              </text>
+              <text
+                x="200"
+                y="250"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#4ECDC4"
+              >
+                Kesetaraan
+              </text>
+              <text
+                x="325"
+                y="250"
+                text-anchor="middle"
+                font-size="10"
+                font-weight="700"
+                fill="#A78BFA"
+              >
+                Jaring Pengaman
+              </text>
+              <path d="M130,200 L145,200" stroke="#1A1A2E" stroke-width="2" />
+              <path d="M255,200 L270,200" stroke="#1A1A2E" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
       </div>
-      <div class="slider-container">
-        <label>💵 Nominal: Rp<span id="machineNominal">100.000</span></label>
-        <input type="range" min="1000" max="10000000" value="100000" step="1000" id="sliderMachineNominal" oninput="updateInflationMachine()">
-      </div>
-      <div class="slider-container">
-        <label>📅 Tahun Asal: <span id="machineYear">1998</span></label>
-        <input type="range" min="1990" max="2023" value="1998" step="1" id="sliderMachineYear" oninput="updateInflationMachine()">
-      </div>
-      <div class="card mt-3" style="border-top:5px solid var(--teal)">
-        <h4>📊 Hasil Konversi</h4>
-        <p class="mt-2">Rp<span id="machineInput">100.000</span> di tahun <span id="machineYearFrom">1998</span></p>
-        <p>Setara dengan <strong style="font-size:1.3rem;color:var(--coral)">Rp<span id="machineEquivalent">850.000</span></strong> di tahun 2024</p>
-        <p class="mt-2">Kumulatif inflasi: <strong style="color:var(--coral)"><span id="machineInflation">750</span>%</strong></p>
-        <p>Daya beli menurun: <strong style="color:var(--coral)"><span id="machineLoss">88,2</span>%</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch4-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--orange)">Ringkasan</div>
-    <h2 class="mb-4">Chapter 4: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--orange)">Uang = alat tukar, satuan hitung, penyimpan nilai</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">Inflasi = kenaikan harga umum → daya beli turun</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--teal)">Inflasi moderat (2-4%) itu sehat</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--purple)">Deflasi juga berbahaya, bisa memicu resesi</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--yellow)">Krisis 1998: inflasi 77,63%!</li>
-    </ul>
-    <a href="#ch5" class="btn mt-4" style="background:var(--pink);color:#fff">Lanjut ke Chapter 5 →</a>
-  </div>
-</section>
-
-<!-- ============ CHAPTER 5 ============ -->
-<section class="section hero-section" id="ch5" style="background:var(--cream)">
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number" style="background:var(--pink)">Chapter 5</div>
-        <h1>Sistem<br><span style="color:var(--pink)">Ekonomi</span></h1>
-        <p class="hook-question" style="border-left-color:var(--pink)">"Kenapa Korea Utara kelaparan sementara Korea Selatan jadi negara maju?"</p>
-        <p class="mb-3">Sistem ekonomi menentukan bagaimana suatu negara mengatur produksi, distribusi, dan konsumsi. Pilihannya berdampak besar.</p>
-        <a href="#ch5-materi" class="btn btn-green">Pelajari Lebih Lanjut ↓</a>
-      </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" width="100%">
-          <rect x="20" y="80" width="110" height="240" rx="10" stroke="#FF6B6B" fill="none" stroke-width="3"/>
-          <rect x="145" y="80" width="110" height="240" rx="10" stroke="#4ECDC4" fill="none" stroke-width="3"/>
-          <rect x="270" y="80" width="110" height="240" rx="10" stroke="#A78BFA" fill="none" stroke-width="3"/>
-          <text x="75" y="60" text-anchor="middle" font-size="12" font-weight="900" fill="#FF6B6B">KAPITALIS</text>
-          <text x="200" y="60" text-anchor="middle" font-size="12" font-weight="900" fill="#4ECDC4">SOSIALIS</text>
-          <text x="325" y="60" text-anchor="middle" font-size="12" font-weight="900" fill="#A78BFA">CAMPURAN</text>
-          <text x="75" y="140" text-anchor="middle" font-size="30">🏪</text>
-          <text x="200" y="140" text-anchor="middle" font-size="30">🏛️</text>
-          <text x="325" y="140" text-anchor="middle" font-size="30">⚖️</text>
-          <text x="75" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="#FF6B6B">Pasar Bebas</text>
-          <text x="200" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="#4ECDC4">Negatur</text>
-          <text x="325" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="#A78BFA">Pasar + Negara</text>
-          <text x="75" y="220" text-anchor="middle" font-size="10" font-weight="700" fill="#FF6B6B">Persaingan</text>
-          <text x="200" y="220" text-anchor="middle" font-size="10" font-weight="700" fill="#4ECDC4">Milik Negara</text>
-          <text x="325" y="220" text-anchor="middle" font-size="10" font-weight="700" fill="#A78BFA">Regulasi</text>
-          <text x="75" y="250" text-anchor="middle" font-size="10" font-weight="700" fill="#FF6B6B">Laba = Tujuan</text>
-          <text x="200" y="250" text-anchor="middle" font-size="10" font-weight="700" fill="#4ECDC4">Kesetaraan</text>
-          <text x="325" y="250" text-anchor="middle" font-size="10" font-weight="700" fill="#A78BFA">Jaring Pengaman</text>
-          <path d="M130,200 L145,200" stroke="#1A1A2E" stroke-width="2"/>
-          <path d="M255,200 L270,200" stroke="#1A1A2E" stroke-width="2"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch5-materi" style="background:var(--gray)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--pink)">Materi</div>
-    <h2 class="mb-3">Tiga <span style="color:var(--pink)">Sistem Ekonomi</span> Utama</h2>
-    <div class="grid-3">
-      <div class="card" style="border-top:5px solid var(--coral)">
-        <h4 class="mb-2">🏪 Kapitalisme</h4>
-        <p>Sumber daya dimiliki swasta. Pasar bebas menentukan harga. Tujuan: keuntungan.</p>
-        <p class="mt-2"><strong>Contoh:</strong> AS, Singapura</p>
-        <p class="mt-2"><strong>➕</strong> Inovasi tinggi, efisiensi</p>
-        <p><strong>➖</strong> Ketimpangan, monopoli</p>
-      </div>
-      <div class="card" style="border-top:5px solid var(--teal)">
-        <h4 class="mb-2">🏛️ Sosialisme</h4>
-        <p>Sumber daya dikelola negara. Distribusi merata. Tujuan: kesejahteraan bersama.</p>
-        <p class="mt-2"><strong>Contoh:</strong> Kuba, Korea Utara</p>
-        <p class="mt-2"><strong>➕</strong> Kesetaraan, jaring pengaman</p>
-        <p><strong>➖</strong> Inovasi rendah, inefisiensi</p>
-      </div>
-      <div class="card" style="border-top:5px solid var(--purple)">
-        <h4 class="mb-2">⚖️ Ekonomi Campuran</h4>
-        <p>Kombinasi pasar bebas dan intervensi pemerintah. Paling banyak dipakai.</p>
-        <p class="mt-2"><strong>Contoh:</strong> Indonesia, Swedia</p>
-        <p class="mt-2"><strong>➕</strong> Seimbang, fleksibel</p>
-        <p><strong>➖</strong> Kompleks, regulasi bertentangan</p>
-      </div>
-    </div>
-    <div class="fact-card mt-4" style="background:var(--teal)">
-      <p>Indonesia menganut "Ekonomi Pancasila" yang berlandaskan Pasal 33 UUD 1945: "Perekonomian disusun sebagai usaha bersama berdasar atas asas kekeluargaan."</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch5-interaktif" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--pink)">Interaktif</div>
-    <h2 class="mb-3">🃏 Kuis: <span style="color:var(--pink)">Sistem Ekonomi</span> Mana?</h2>
-    <p class="mb-3">Baca pernyataan, lalu pilih sistem ekonomi yang paling sesuai.</p>
-    <div id="quizCardArea">
-      <div class="quiz-card mb-3" id="quizCard1" style="border-top:5px solid var(--coral)">
-        <h4 class="mb-2">Pernyataan 1:</h4>
-        <p class="mb-2">"Perusahaan swasta bebas bersaing, harga ditentukan pasar tanpa intervensi pemerintah."</p>
+    <section class="section" id="ch5-materi" style="background: var(--gray)">
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--pink)">Materi</div>
+        <h2 class="mb-3">
+          Tiga <span style="color: var(--pink)">Sistem Ekonomi</span> Utama
+        </h2>
         <div class="grid-3">
-          <button class="btn" style="background:var(--coral)" onclick="checkSystemQuiz(1,'kapitalis')">Kapitalis</button>
-          <button class="btn" style="background:var(--teal)" onclick="checkSystemQuiz(1,'sosialis')">Sosialis</button>
-          <button class="btn" style="background:var(--purple)" onclick="checkSystemQuiz(1,'campuran')">Campuran</button>
+          <div class="card" style="border-top: 5px solid var(--coral)">
+            <h4 class="mb-2">🏪 Kapitalisme</h4>
+            <p>
+              Sumber daya dimiliki swasta. Pasar bebas menentukan harga. Tujuan:
+              keuntungan.
+            </p>
+            <p class="mt-2"><strong>Contoh:</strong> AS, Singapura</p>
+            <p class="mt-2"><strong>➕</strong> Inovasi tinggi, efisiensi</p>
+            <p><strong>➖</strong> Ketimpangan, monopoli</p>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--teal)">
+            <h4 class="mb-2">🏛️ Sosialisme</h4>
+            <p>
+              Sumber daya dikelola negara. Distribusi merata. Tujuan:
+              kesejahteraan bersama.
+            </p>
+            <p class="mt-2"><strong>Contoh:</strong> Kuba, Korea Utara</p>
+            <p class="mt-2"><strong>➕</strong> Kesetaraan, jaring pengaman</p>
+            <p><strong>➖</strong> Inovasi rendah, inefisiensi</p>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--purple)">
+            <h4 class="mb-2">⚖️ Ekonomi Campuran</h4>
+            <p>
+              Kombinasi pasar bebas dan intervensi pemerintah. Paling banyak
+              dipakai.
+            </p>
+            <p class="mt-2"><strong>Contoh:</strong> Indonesia, Swedia</p>
+            <p class="mt-2"><strong>➕</strong> Seimbang, fleksibel</p>
+            <p><strong>➖</strong> Kompleks, regulasi bertentangan</p>
+          </div>
         </div>
-        <div class="quiz-feedback" id="feedback1"></div>
-      </div>
-      <div class="quiz-card mb-3" id="quizCard2" style="border-top:5px solid var(--teal)">
-        <h4 class="mb-2">Pernyataan 2:</h4>
-        <p class="mb-2">"Pemerintah memiliki semua pabrik dan menentukan berapa banyak barang yang diproduksi."</p>
-        <div class="grid-3">
-          <button class="btn" style="background:var(--coral)" onclick="checkSystemQuiz(2,'kapitalis')">Kapitalis</button>
-          <button class="btn" style="background:var(--teal)" onclick="checkSystemQuiz(2,'sosialis')">Sosialis</button>
-          <button class="btn" style="background:var(--purple)" onclick="checkSystemQuiz(2,'campuran')">Campuran</button>
+        <div class="fact-card mt-4" style="background: var(--teal)">
+          <p>
+            Indonesia menganut "Ekonomi Pancasila" yang berlandaskan Pasal 33
+            UUD 1945: "Perekonomian disusun sebagai usaha bersama berdasar atas
+            asas kekeluargaan."
+          </p>
         </div>
-        <div class="quiz-feedback" id="feedback2"></div>
       </div>
-      <div class="quiz-card mb-3" id="quizCard3" style="border-top:5px solid var(--purple)">
-        <h4 class="mb-2">Pernyataan 3:</h4>
-        <p class="mb-2">"Pasar bebas berjalan, tapi pemerintah mengatur upah minimum dan memberikan subsidi untuk rakyat miskin."</p>
-        <div class="grid-3">
-          <button class="btn" style="background:var(--coral)" onclick="checkSystemQuiz(3,'kapitalis')">Kapitalis</button>
-          <button class="btn" style="background:var(--teal)" onclick="checkSystemQuiz(3,'sosialis')">Sosialis</button>
-          <button class="btn" style="background:var(--purple)" onclick="checkSystemQuiz(3,'campuran')">Campuran</button>
+    </section>
+
+    <section
+      class="section"
+      id="ch5-interaktif"
+      style="background: var(--cream)"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--pink)">
+          Interaktif
         </div>
-        <div class="quiz-feedback" id="feedback3"></div>
-      </div>
-      <div class="quiz-card mb-3" id="quizCard4" style="border-top:5px solid var(--yellow)">
-        <h4 class="mb-2">Pernyataan 4:</h4>
-        <p class="mb-2">"Pendidikan dan kesehatan gratis untuk semua warga, dibiayai dari pajak tinggi."</p>
-        <div class="grid-3">
-          <button class="btn" style="background:var(--coral)" onclick="checkSystemQuiz(4,'kapitalis')">Kapitalis</button>
-          <button class="btn" style="background:var(--teal)" onclick="checkSystemQuiz(4,'sosialis')">Sosialis</button>
-          <button class="btn" style="background:var(--purple)" onclick="checkSystemQuiz(4,'campuran')">Campuran</button>
+        <h2 class="mb-3">
+          🃏 Kuis: <span style="color: var(--pink)">Sistem Ekonomi</span> Mana?
+        </h2>
+        <p class="mb-3">
+          Baca pernyataan, lalu pilih sistem ekonomi yang paling sesuai.
+        </p>
+        <div id="quizCardArea">
+          <div
+            class="quiz-card mb-3"
+            id="quizCard1"
+            style="border-top: 5px solid var(--coral)"
+          >
+            <h4 class="mb-2">Pernyataan 1:</h4>
+            <p class="mb-2">
+              "Perusahaan swasta bebas bersaing, harga ditentukan pasar tanpa
+              intervensi pemerintah."
+            </p>
+            <div class="grid-3">
+              <button
+                class="btn"
+                style="background: var(--coral)"
+                onclick="checkSystemQuiz(1, 'kapitalis')"
+              >
+                Kapitalis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--teal)"
+                onclick="checkSystemQuiz(1, 'sosialis')"
+              >
+                Sosialis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--purple)"
+                onclick="checkSystemQuiz(1, 'campuran')"
+              >
+                Campuran
+              </button>
+            </div>
+            <div class="quiz-feedback" id="feedback1"></div>
+          </div>
+          <div
+            class="quiz-card mb-3"
+            id="quizCard2"
+            style="border-top: 5px solid var(--teal)"
+          >
+            <h4 class="mb-2">Pernyataan 2:</h4>
+            <p class="mb-2">
+              "Pemerintah memiliki semua pabrik dan menentukan berapa banyak
+              barang yang diproduksi."
+            </p>
+            <div class="grid-3">
+              <button
+                class="btn"
+                style="background: var(--coral)"
+                onclick="checkSystemQuiz(2, 'kapitalis')"
+              >
+                Kapitalis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--teal)"
+                onclick="checkSystemQuiz(2, 'sosialis')"
+              >
+                Sosialis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--purple)"
+                onclick="checkSystemQuiz(2, 'campuran')"
+              >
+                Campuran
+              </button>
+            </div>
+            <div class="quiz-feedback" id="feedback2"></div>
+          </div>
+          <div
+            class="quiz-card mb-3"
+            id="quizCard3"
+            style="border-top: 5px solid var(--purple)"
+          >
+            <h4 class="mb-2">Pernyataan 3:</h4>
+            <p class="mb-2">
+              "Pasar bebas berjalan, tapi pemerintah mengatur upah minimum dan
+              memberikan subsidi untuk rakyat miskin."
+            </p>
+            <div class="grid-3">
+              <button
+                class="btn"
+                style="background: var(--coral)"
+                onclick="checkSystemQuiz(3, 'kapitalis')"
+              >
+                Kapitalis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--teal)"
+                onclick="checkSystemQuiz(3, 'sosialis')"
+              >
+                Sosialis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--purple)"
+                onclick="checkSystemQuiz(3, 'campuran')"
+              >
+                Campuran
+              </button>
+            </div>
+            <div class="quiz-feedback" id="feedback3"></div>
+          </div>
+          <div
+            class="quiz-card mb-3"
+            id="quizCard4"
+            style="border-top: 5px solid var(--yellow)"
+          >
+            <h4 class="mb-2">Pernyataan 4:</h4>
+            <p class="mb-2">
+              "Pendidikan dan kesehatan gratis untuk semua warga, dibiayai dari
+              pajak tinggi."
+            </p>
+            <div class="grid-3">
+              <button
+                class="btn"
+                style="background: var(--coral)"
+                onclick="checkSystemQuiz(4, 'kapitalis')"
+              >
+                Kapitalis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--teal)"
+                onclick="checkSystemQuiz(4, 'sosialis')"
+              >
+                Sosialis
+              </button>
+              <button
+                class="btn"
+                style="background: var(--purple)"
+                onclick="checkSystemQuiz(4, 'campuran')"
+              >
+                Campuran
+              </button>
+            </div>
+            <div class="quiz-feedback" id="feedback4"></div>
+          </div>
         </div>
-        <div class="quiz-feedback" id="feedback4"></div>
+        <div
+          class="card mt-3 text-center"
+          id="systemQuizScore"
+          style="display: none; border-top: 5px solid var(--pink)"
+        >
+          <h3>🎉 Skor Kuis: <span id="systemQuizScoreVal">0</span>/4</h3>
+          <p id="systemQuizMessage" class="mt-2"></p>
+
+          <button
+            class="btn mt-3"
+            style="
+              background: var(--pink);
+              color: #fff;
+              border: 2px solid var(--dark);
+              cursor: pointer;
+            "
+            onclick="resetSystemQuiz()"
+          >
+            Coba Lagi
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="card mt-3 text-center" id="systemQuizScore" style="display:none;border-top:5px solid var(--pink)">
-      <h3>🎉 Skor Kuis: <span id="systemQuizScoreVal">0</span>/4</h3>
-      <p id="systemQuizMessage" class="mt-2"></p>
+    </section>
 
-      <button class="btn mt-3" style="background:var(--pink); color:#fff; border: 2px solid var(--dark); cursor: pointer;" onclick="resetSystemQuiz()">Coba Lagi</button>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch5-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--pink)">Ringkasan</div>
-    <h2 class="mb-4">Chapter 5: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">Kapitalisme: pasar bebas, swasta, profit-oriented</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--teal)">Sosialisme: negara menguasai, distribusi merata</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--purple)">Ekonomi campuran: kombinasi keduanya</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--yellow)">Indonesia = Ekonomi Pancasila</li>
-    </ul>
-    <a href="#ch6" class="btn mt-4" style="background:var(--blue);color:#fff">Lanjut ke Chapter 6 →</a>
-  </div>
-</section>
-
-<!-- ============ CHAPTER 6 ============ -->
-<section class="section hero-section" id="ch6" style="background:var(--light-cream)">
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number" style="background:var(--blue)">Chapter 6</div>
-        <h1>Pendapatan<br><span style="color:var(--blue)">Nasional</span></h1>
-        <p class="hook-question" style="border-left-color:var(--blue)">"Indonesia itu negara kaya atau miskin? Lihat dari GDP-nya!"</p>
-        <p class="mb-3">GDP (Gross Domestic Product) adalah total nilai semua barang dan jasa yang diproduksi dalam suatu negara dalam periode tertentu.</p>
-        <a href="#ch6-materi" class="btn btn-green">Pelajari Lebih Lanjut ↓</a>
+    <section
+      class="section"
+      id="ch5-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--pink)">
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 5: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            Kapitalisme: pasar bebas, swasta, profit-oriented
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--teal);
+            "
+          >
+            Sosialisme: negara menguasai, distribusi merata
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--purple);
+            "
+          >
+            Ekonomi campuran: kombinasi keduanya
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--yellow);
+            "
+          >
+            Indonesia = Ekonomi Pancasila
+          </li>
+        </ul>
+        <a
+          href="#ch6"
+          class="btn mt-4"
+          style="background: var(--blue); color: #fff"
+          >Lanjut ke Chapter 6 →</a
+        >
       </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" width="100%">
-          <line x1="50" y1="350" x2="380" y2="350" stroke="#1A1A2E" stroke-width="3"/>
-          <line x1="50" y1="350" x2="50" y2="50" stroke="#1A1A2E" stroke-width="3"/>
-          <rect x="70" y="280" width="30" height="70" rx="4" stroke="#60A5FA" fill="#60A5FA" stroke-width="2"/>
-          <rect x="110" y="260" width="30" height="90" rx="4" stroke="#60A5FA" fill="#60A5FA" stroke-width="2"/>
-          <rect x="150" y="240" width="30" height="110" rx="4" stroke="#60A5FA" fill="#60A5FA" stroke-width="2"/>
-          <rect x="190" y="220" width="30" height="130" rx="4" stroke="#60A5FA" fill="#60A5FA" stroke-width="2"/>
-          <rect x="230" y="180" width="30" height="170" rx="4" stroke="#60A5FA" fill="#60A5FA" stroke-width="2"/>
-          <rect x="270" y="150" width="30" height="200" rx="4" stroke="#60A5FA" fill="#60A5FA" stroke-width="2"/>
-          <rect x="310" y="100" width="30" height="250" rx="4" stroke="#60A5FA" fill="#60A5FA" stroke-width="2"/>
-          <path d="M85,275 L125,255 L165,235 L205,215 L245,175 L285,145 L325,95" stroke="#FF6B6B" stroke-width="4"/>
-          <text x="220" y="380" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1A2E">Tahun</text>
-          <text x="20" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1A2E" transform="rotate(-90,20,200)">GDP</text>
-          <text x="220" y="40" text-anchor="middle" font-size="16" font-weight="900" fill="#FF6B6B">PERTUMBUHAN ↑</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch6-materi" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--blue)">Materi</div>
-    <h2 class="mb-3">GDP, GNP & <span style="color:var(--blue)">Indikator Kesejahteraan</span></h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:5px solid var(--blue)">
-        <h4 class="mb-2">📊 GDP (Produk Domestik Bruto)</h4>
-        <p>Total nilai semua barang dan jasa yang <strong>diproduksi di dalam wilayah suatu negara</strong>.</p>
-        <p class="mt-2"><strong>Rumus:</strong> GDP = C + I + G + (X - M)</p>
-        <ul style="margin-left:20px;margin-top:8px">
-          <li>C = Konsumsi rumah tangga</li>
-          <li>I = Investasi</li>
-          <li>G = Belanja pemerintah</li>
-          <li>X = Ekspor, M = Impor</li>
+    <!-- ============ CHAPTER 6 ============ -->
+    <section
+      class="section hero-section"
+      id="ch6"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number" style="background: var(--blue)">
+              Chapter 6
+            </div>
+            <h1>
+              Pendapatan<br /><span style="color: var(--blue)">Nasional</span>
+            </h1>
+            <p class="hook-question" style="border-left-color: var(--blue)">
+              "Indonesia itu negara kaya atau miskin? Lihat dari GDP-nya!"
+            </p>
+            <p class="mb-3">
+              GDP (Gross Domestic Product) adalah total nilai semua barang dan
+              jasa yang diproduksi dalam suatu negara dalam periode tertentu.
+            </p>
+            <a href="#ch6-materi" class="btn btn-green"
+              >Pelajari Lebih Lanjut ↓</a
+            >
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" width="100%">
+              <line
+                x1="50"
+                y1="350"
+                x2="380"
+                y2="350"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <line
+                x1="50"
+                y1="350"
+                x2="50"
+                y2="50"
+                stroke="#1A1A2E"
+                stroke-width="3"
+              />
+              <rect
+                x="70"
+                y="280"
+                width="30"
+                height="70"
+                rx="4"
+                stroke="#60A5FA"
+                fill="#60A5FA"
+                stroke-width="2"
+              />
+              <rect
+                x="110"
+                y="260"
+                width="30"
+                height="90"
+                rx="4"
+                stroke="#60A5FA"
+                fill="#60A5FA"
+                stroke-width="2"
+              />
+              <rect
+                x="150"
+                y="240"
+                width="30"
+                height="110"
+                rx="4"
+                stroke="#60A5FA"
+                fill="#60A5FA"
+                stroke-width="2"
+              />
+              <rect
+                x="190"
+                y="220"
+                width="30"
+                height="130"
+                rx="4"
+                stroke="#60A5FA"
+                fill="#60A5FA"
+                stroke-width="2"
+              />
+              <rect
+                x="230"
+                y="180"
+                width="30"
+                height="170"
+                rx="4"
+                stroke="#60A5FA"
+                fill="#60A5FA"
+                stroke-width="2"
+              />
+              <rect
+                x="270"
+                y="150"
+                width="30"
+                height="200"
+                rx="4"
+                stroke="#60A5FA"
+                fill="#60A5FA"
+                stroke-width="2"
+              />
+              <rect
+                x="310"
+                y="100"
+                width="30"
+                height="250"
+                rx="4"
+                stroke="#60A5FA"
+                fill="#60A5FA"
+                stroke-width="2"
+              />
+              <path
+                d="M85,275 L125,255 L165,235 L205,215 L245,175 L285,145 L325,95"
+                stroke="#FF6B6B"
+                stroke-width="4"
+              />
+              <text
+                x="220"
+                y="380"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="700"
+                fill="#1A1A2E"
+              >
+                Tahun
+              </text>
+              <text
+                x="20"
+                y="200"
+                text-anchor="middle"
+                font-size="11"
+                font-weight="700"
+                fill="#1A1A2E"
+                transform="rotate(-90,20,200)"
+              >
+                GDP
+              </text>
+              <text
+                x="220"
+                y="40"
+                text-anchor="middle"
+                font-size="16"
+                font-weight="900"
+                fill="#FF6B6B"
+              >
+                PERTUMBUHAN ↑
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ch6-materi" style="background: var(--cream)">
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--blue)">Materi</div>
+        <h2 class="mb-3">
+          GDP, GNP &
+          <span style="color: var(--blue)">Indikator Kesejahteraan</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-top: 5px solid var(--blue)">
+            <h4 class="mb-2">📊 GDP (Produk Domestik Bruto)</h4>
+            <p>
+              Total nilai semua barang dan jasa yang
+              <strong>diproduksi di dalam wilayah suatu negara</strong>.
+            </p>
+            <p class="mt-2">
+              <strong>Rumus:</strong> GDP = C + I + G + (X - M)
+            </p>
+            <ul style="margin-left: 20px; margin-top: 8px">
+              <li>C = Konsumsi rumah tangga</li>
+              <li>I = Investasi</li>
+              <li>G = Belanja pemerintah</li>
+              <li>X = Ekspor, M = Impor</li>
+            </ul>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--green)">
+            <h4 class="mb-2">🌍 GNP (Produk Nasional Bruto)</h4>
+            <p>
+              Total nilai yang <strong>diproduksi oleh warga negara</strong>, di
+              mana pun mereka berada.
+            </p>
+            <p class="mt-2"><strong>Perbedaan:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 8px">
+              <li>GDP: berdasarkan <strong>wilayah</strong></li>
+              <li>GNP: berdasarkan <strong>kewarganegaraan</strong></li>
+            </ul>
+            <p class="mt-2">
+              <strong>Indikator lain:</strong> PDB per kapita, IPM, koefisien
+              Gini.
+            </p>
+          </div>
+        </div>
+        <div
+          class="fact-card mt-4"
+          style="background: var(--blue); color: #fff"
+        >
+          <p style="color: #fff">
+            GDP Indonesia 2023 mencapai ~Rp20.000 triliun (~USD 1,3 triliun),
+            menjadikan Indonesia ekonomi terbesar ke-16 di dunia!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch6-interaktif"
+      style="background: var(--light-cream)"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--blue)">
+          Interaktif
+        </div>
+        <h2 class="mb-3">
+          📈 Grafik Pertumbuhan
+          <span style="color: var(--blue)">Ekonomi Indonesia</span>
+        </h2>
+        <p class="mb-3">
+          Hover pada bar untuk melihat detail data. Klik tab untuk ganti metrik.
+        </p>
+        <div class="tabs">
+          <button
+            class="tab-btn active"
+            onclick="switchGDPTab('growth', event)"
+          >
+            Pertumbuhan (%)
+          </button>
+          <button class="tab-btn" onclick="switchGDPTab('gdp', event)">
+            GDP (Ribu Triliun Rp)
+          </button>
+          <button class="tab-btn" onclick="switchGDPTab('percapita', event)">
+            PDB Per Kapita (Juta Rp)
+          </button>
+        </div>
+        <div
+          class="chart-container"
+          id="gdpChartContainer"
+          style="height: 350px; border-top: 5px solid var(--blue)"
+        ></div>
+        <div class="chart-tooltip" id="gdpTooltip"></div>
+        <div class="card mt-3" style="border-top: 5px solid var(--blue)">
+          <h4 id="gdpDetailTitle">📋 Data Pertumbuhan Ekonomi Indonesia</h4>
+          <p id="gdpDetailText" class="mt-2">
+            Sentuh atau klik batang grafik di atas untuk melihat detail per
+            tahun.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch6-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--blue)">
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 6: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--blue);
+            "
+          >
+            GDP = total produksi dalam wilayah negara
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--teal);
+            "
+          >
+            GNP = total produksi oleh warga negara
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            GDP = C + I + G + (X - M)
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--green);
+            "
+          >
+            Pertumbuhan ekonomi Indonesia 2023: ~5,05%
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--yellow);
+            "
+          >
+            GDP bukan satu-satunya indikator kesejahteraan
+          </li>
+        </ul>
+        <a
+          href="#ch7"
+          class="btn mt-4"
+          style="background: var(--coral); color: #fff"
+          >Lanjut ke Chapter 7 →</a
+        >
+      </div>
+    </section>
+
+    <!-- ============ CHAPTER 7 ============ -->
+    <section
+      class="section hero-section"
+      id="ch7"
+      style="background: var(--cream)"
+    >
+      <div class="section-inner">
+        <div class="hero-content">
+          <div>
+            <div class="chapter-number" style="background: var(--green)">
+              Chapter 7
+            </div>
+            <h1>
+              Kebijakan<br /><span style="color: var(--green)"
+                >Fiskal & Moneter</span
+              >
+            </h1>
+            <p class="hook-question" style="border-left-color: var(--green)">
+              "Kenapa Bank Indonesia bisa menurunkan suku bunga saat pandemi?"
+            </p>
+            <p class="mb-3">
+              Pemerintah dan bank sentral punya dua senjata utama:
+              <strong>kebijakan fiskal</strong> (APBN, pajak, belanja) dan
+              <strong>kebijakan moneter</strong> (suku bunga, jumlah uang
+              beredar).
+            </p>
+            <a href="#ch7-materi" class="btn btn-green"
+              >Pelajari Lebih Lanjut ↓</a
+            >
+          </div>
+          <div class="float-anim">
+            <svg viewBox="0 0 400 400" width="100%">
+              <rect
+                x="40"
+                y="80"
+                width="140"
+                height="180"
+                rx="12"
+                stroke="#34D399"
+                fill="none"
+                stroke-width="4"
+              />
+              <text
+                x="110"
+                y="120"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="900"
+                fill="#34D399"
+              >
+                PEMERINTAH
+              </text>
+              <text x="110" y="155" text-anchor="middle" font-size="30">
+                🏛️
+              </text>
+              <text
+                x="110"
+                y="195"
+                text-anchor="middle"
+                font-size="11"
+                font-weight="700"
+                fill="#34D399"
+              >
+                Fiskal
+              </text>
+              <text
+                x="110"
+                y="215"
+                text-anchor="middle"
+                font-size="10"
+                fill="#34D399"
+              >
+                Pajak, APBN
+              </text>
+              <text
+                x="110"
+                y="235"
+                text-anchor="middle"
+                font-size="10"
+                fill="#34D399"
+              >
+                Belanja Negara
+              </text>
+              <rect
+                x="220"
+                y="80"
+                width="140"
+                height="180"
+                rx="12"
+                stroke="#60A5FA"
+                fill="none"
+                stroke-width="4"
+              />
+              <text
+                x="290"
+                y="120"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="900"
+                fill="#60A5FA"
+              >
+                BANK SENTRAL
+              </text>
+              <text x="290" y="155" text-anchor="middle" font-size="30"></text>
+              <text
+                x="290"
+                y="195"
+                text-anchor="middle"
+                font-size="11"
+                font-weight="700"
+                fill="#60A5FA"
+              >
+                Moneter
+              </text>
+              <text
+                x="290"
+                y="215"
+                text-anchor="middle"
+                font-size="10"
+                fill="#60A5FA"
+              >
+                Suku Bunga
+              </text>
+              <text
+                x="290"
+                y="235"
+                text-anchor="middle"
+                font-size="10"
+                fill="#60A5FA"
+              >
+                Uang Beredar
+              </text>
+              <path d="M180,170 L220,170" stroke="#1A1A2E" stroke-width="3" />
+              <path d="M210,160 L220,170 L210,180" fill="#1A1A2E" />
+              <path d="M220,190 L180,190" stroke="#1A1A2E" stroke-width="3" />
+              <path d="M190,200 L180,190 L190,180" fill="#1A1A2E" />
+              <circle
+                cx="200"
+                cy="340"
+                r="40"
+                stroke="#FFE66D"
+                fill="#FFE66D"
+                stroke-width="4"
+              />
+              <text
+                x="200"
+                y="345"
+                text-anchor="middle"
+                font-size="12"
+                font-weight="900"
+                fill="#1A1A2E"
+              >
+                EKONOMI
+              </text>
+              <path
+                d="M110,260 L160,310"
+                stroke="#34D399"
+                stroke-width="2"
+                stroke-dasharray="5,3"
+              />
+              <path
+                d="M290,260 L240,310"
+                stroke="#60A5FA"
+                stroke-width="2"
+                stroke-dasharray="5,3"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ch7-materi" style="background: var(--gray)">
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--green)">
+          Materi
+        </div>
+        <h2 class="mb-3">
+          Kebijakan <span style="color: var(--green)">Fiskal & Moneter</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-top: 5px solid var(--green)">
+            <h4 class="mb-2">🏛️ Kebijakan Fiskal</h4>
+            <p>Kebijakan pemerintah melalui <strong>APBN</strong>.</p>
+            <p class="mt-2"><strong>Alat:</strong></p>
+            <ul style="margin-left: 20px">
+              <li>Pajak (menaikkan/menurunkan tarif)</li>
+              <li>Belanja pemerintah (infrastruktur, subsidi)</li>
+              <li>Transfer (bantuan sosial, BLT)</li>
+            </ul>
+            <p class="mt-2">
+              <strong>Ekspansif:</strong> Turunkan pajak, naikkan belanja →
+              stimulus
+            </p>
+            <p>
+              <strong>Kontraktif:</strong> Naikkan pajak, turunkan belanja →
+              redam inflasi
+            </p>
+          </div>
+          <div class="card" style="border-top: 5px solid var(--blue)">
+            <h4 class="mb-2">🏦 Kebijakan Moneter</h4>
+            <p>
+              Kebijakan bank sentral (BI) untuk mengatur
+              <strong>jumlah uang beredar</strong>.
+            </p>
+            <p class="mt-2"><strong>Alat:</strong></p>
+            <ul style="margin-left: 20px">
+              <li>Suku bunga acuan (BI Rate)</li>
+              <li>Giro Wajib Minimum (GWM)</li>
+              <li>Operasi pasar terbuka</li>
+            </ul>
+            <p class="mt-2">
+              <strong>Ekspansif:</strong> Turunkan suku bunga → kredit murah
+            </p>
+            <p>
+              <strong>Kontraktif:</strong> Naikkan suku bunga → inflasi
+              terkendali
+            </p>
+          </div>
+        </div>
+        <div class="fact-card mt-4" style="background: var(--green)">
+          <p>
+            Saat pandemi 2020, Bank Indonesia menurunkan suku bunga acuan
+            (BI7DRR) hingga 3,75%, sementara pemerintah mengalokasikan stimulus
+            Pemulihan Ekonomi Nasional sekitar Rp695 triliun.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch7-interaktif"
+      style="background: var(--cream)"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--green)">
+          Simulasi
+        </div>
+        <h2 class="mb-3">
+          ️ Simulator <span style="color: var(--green)">Kebijakan Ekonomi</span>
+        </h2>
+        <p class="mb-3">
+          Kamu sekarang Gubernur Bank Indonesia! Atur suku bunga dan lihat
+          dampaknya.
+        </p>
+        <div class="grid-2">
+          <div>
+            <div class="slider-container">
+              <label
+                >🏦 Suku Bunga BI Rate: <span id="policyRate">5.0</span>%</label
+              >
+              <input
+                type="range"
+                min="1"
+                max="15"
+                value="5"
+                step="0.25"
+                id="sliderPolicyRate"
+                oninput="updatePolicySim()"
+              />
+            </div>
+            <div class="slider-container">
+              <label
+                >🏛️ Belanja Pemerintah: <span id="policyGovt">50</span>%</label
+              >
+              <input
+                type="range"
+                min="10"
+                max="90"
+                value="50"
+                step="5"
+                id="sliderPolicyGovt"
+                oninput="updatePolicySim()"
+              />
+            </div>
+            <button class="btn btn-green mt-3" onclick="runPolicySim()">
+              🚀 Jalankan Simulasi
+            </button>
+          </div>
+          <div>
+            <div
+              class="card"
+              id="policyResults"
+              style="border-top: 5px solid var(--green)"
+            >
+              <h4 class="mb-2">📊 Hasil Simulasi</h4>
+              <div class="mb-2">
+                <span>📈 Inflasi: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugeInflation"
+                    style="width: 40%; background: var(--coral)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelInflation">3.5%</span>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span>💼 Investasi: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugeInvestment"
+                    style="width: 60%; background: var(--purple)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelInvestment">60%</span>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span>📊 Pertumbuhan: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugeGrowth"
+                    style="width: 50%; background: var(--teal)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelGrowth">5.0%</span>
+                </div>
+              </div>
+              <div class="mb-2">
+                <span>💰 Nilai Tukar: </span>
+                <div class="policy-gauge mt-1">
+                  <div
+                    class="gauge-fill"
+                    id="gaugeExchange"
+                    style="width: 55%; background: var(--blue)"
+                  ></div>
+                  <span class="gauge-label" id="gaugeLabelExchange"
+                    >15.000</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="fact-card mt-3"
+              id="policyFeedback"
+              style="display: none; background: var(--teal)"
+            >
+              <p id="policyFeedbackText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="ch7-summary"
+      style="background: var(--dark); color: #fff"
+    >
+      <div class="section-inner section-transition">
+        <div class="chapter-number" style="background: var(--green)">
+          Ringkasan
+        </div>
+        <h2 class="mb-4">Chapter 7: Poin Kunci</h2>
+        <ul class="summary-list" style="max-width: 600px">
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--green);
+            "
+          >
+            Kebijakan fiskal = pemerintah (pajak, belanja, APBN)
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--blue);
+            "
+          >
+            Kebijakan moneter = bank sentral (suku bunga)
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--coral);
+            "
+          >
+            Ekspansif = stimulus, Kontraktif = redam inflasi
+          </li>
+          <li
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+              border-left-color: var(--yellow);
+            "
+          >
+            Kedua kebijakan harus berjalan beriringan
+          </li>
         </ul>
       </div>
-      <div class="card" style="border-top:5px solid var(--green)">
-        <h4 class="mb-2">🌍 GNP (Produk Nasional Bruto)</h4>
-        <p>Total nilai yang <strong>diproduksi oleh warga negara</strong>, di mana pun mereka berada.</p>
-        <p class="mt-2"><strong>Perbedaan:</strong></p>
-        <ul style="margin-left:20px;margin-top:8px">
-          <li>GDP: berdasarkan <strong>wilayah</strong></li>
-          <li>GNP: berdasarkan <strong>kewarganegaraan</strong></li>
-        </ul>
-        <p class="mt-2"><strong>Indikator lain:</strong> PDB per kapita, IPM, koefisien Gini.</p>
-      </div>
-    </div>
-    <div class="fact-card mt-4" style="background:var(--blue);color:#fff">
-      <p style="color:#fff">GDP Indonesia 2023 mencapai ~Rp20.000 triliun (~USD 1,3 triliun), menjadikan Indonesia ekonomi terbesar ke-16 di dunia!</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch6-interaktif" style="background:var(--light-cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--blue)">Interaktif</div>
-    <h2 class="mb-3">📈 Grafik Pertumbuhan <span style="color:var(--blue)">Ekonomi Indonesia</span></h2>
-    <p class="mb-3">Hover pada bar untuk melihat detail data. Klik tab untuk ganti metrik.</p>
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchGDPTab('growth', event)">Pertumbuhan (%)</button>
-      <button class="tab-btn" onclick="switchGDPTab('gdp', event)">GDP (Triliun Rp)</button>
-      <button class="tab-btn" onclick="switchGDPTab('percapita', event)">PDB Per Kapita (Juta Rp)</button>
-    </div>
-    <div class="chart-container" id="gdpChartContainer" style="height:350px;border-top:5px solid var(--blue)">
-    </div>
-    <div class="chart-tooltip" id="gdpTooltip"></div>
-    <div class="card mt-3" style="border-top:5px solid var(--blue)">
-      <h4 id="gdpDetailTitle">📋 Data Pertumbuhan Ekonomi Indonesia</h4>
-      <p id="gdpDetailText" class="mt-2">Sentuh atau klik batang grafik di atas untuk melihat detail per tahun.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch6-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--blue)">Ringkasan</div>
-    <h2 class="mb-4">Chapter 6: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--blue)">GDP = total produksi dalam wilayah negara</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--teal)">GNP = total produksi oleh warga negara</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">GDP = C + I + G + (X - M)</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--green)">Pertumbuhan ekonomi Indonesia 2023: ~5,05%</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--yellow)">GDP bukan satu-satunya indikator kesejahteraan</li>
-    </ul>
-    <a href="#ch7" class="btn mt-4" style="background:var(--coral);color:#fff">Lanjut ke Chapter 7 →</a>
-  </div>
-</section>
-
-<!-- ============ CHAPTER 7 ============ -->
-<section class="section hero-section" id="ch7" style="background:var(--cream)">
-  <div class="section-inner">
-    <div class="hero-content">
-      <div>
-        <div class="chapter-number" style="background:var(--green)">Chapter 7</div>
-        <h1>Kebijakan<br><span style="color:var(--green)">Fiskal & Moneter</span></h1>
-        <p class="hook-question" style="border-left-color:var(--green)">"Kenapa Bank Indonesia bisa menurunkan suku bunga saat pandemi?"</p>
-        <p class="mb-3">Pemerintah dan bank sentral punya dua senjata utama: <strong>kebijakan fiskal</strong> (APBN, pajak, belanja) dan <strong>kebijakan moneter</strong> (suku bunga, jumlah uang beredar).</p>
-        <a href="#ch7-materi" class="btn btn-green">Pelajari Lebih Lanjut ↓</a>
-      </div>
-      <div class="float-anim">
-        <svg viewBox="0 0 400 400" width="100%">
-          <rect x="40" y="80" width="140" height="180" rx="12" stroke="#34D399" fill="none" stroke-width="4"/>
-          <text x="110" y="120" text-anchor="middle" font-size="14" font-weight="900" fill="#34D399">PEMERINTAH</text>
-          <text x="110" y="155" text-anchor="middle" font-size="30">🏛️</text>
-          <text x="110" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#34D399">Fiskal</text>
-          <text x="110" y="215" text-anchor="middle" font-size="10" fill="#34D399">Pajak, APBN</text>
-          <text x="110" y="235" text-anchor="middle" font-size="10" fill="#34D399">Belanja Negara</text>
-          <rect x="220" y="80" width="140" height="180" rx="12" stroke="#60A5FA" fill="none" stroke-width="4"/>
-          <text x="290" y="120" text-anchor="middle" font-size="14" font-weight="900" fill="#60A5FA">BANK SENTRAL</text>
-          <text x="290" y="155" text-anchor="middle" font-size="30"></text>
-          <text x="290" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#60A5FA">Moneter</text>
-          <text x="290" y="215" text-anchor="middle" font-size="10" fill="#60A5FA">Suku Bunga</text>
-          <text x="290" y="235" text-anchor="middle" font-size="10" fill="#60A5FA">Uang Beredar</text>
-          <path d="M180,170 L220,170" stroke="#1A1A2E" stroke-width="3"/>
-          <path d="M210,160 L220,170 L210,180" fill="#1A1A2E"/>
-          <path d="M220,190 L180,190" stroke="#1A1A2E" stroke-width="3"/>
-          <path d="M190,200 L180,190 L190,180" fill="#1A1A2E"/>
-          <circle cx="200" cy="340" r="40" stroke="#FFE66D" fill="#FFE66D" stroke-width="4"/>
-          <text x="200" y="345" text-anchor="middle" font-size="12" font-weight="900" fill="#1A1A2E">EKONOMI</text>
-          <path d="M110,260 L160,310" stroke="#34D399" stroke-width="2" stroke-dasharray="5,3"/>
-          <path d="M290,260 L240,310" stroke="#60A5FA" stroke-width="2" stroke-dasharray="5,3"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch7-materi" style="background:var(--gray)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--green)">Materi</div>
-    <h2 class="mb-3">Kebijakan <span style="color:var(--green)">Fiskal & Moneter</span></h2>
-    <div class="grid-2">
-      <div class="card" style="border-top:5px solid var(--green)">
-        <h4 class="mb-2">🏛️ Kebijakan Fiskal</h4>
-        <p>Kebijakan pemerintah melalui <strong>APBN</strong>.</p>
-        <p class="mt-2"><strong>Alat:</strong></p>
-        <ul style="margin-left:20px">
-          <li>Pajak (menaikkan/menurunkan tarif)</li>
-          <li>Belanja pemerintah (infrastruktur, subsidi)</li>
-          <li>Transfer (bantuan sosial, BLT)</li>
-        </ul>
-        <p class="mt-2"><strong>Ekspansif:</strong> Turunkan pajak, naikkan belanja → stimulus</p>
-        <p><strong>Kontraktif:</strong> Naikkan pajak, turunkan belanja → redam inflasi</p>
-      </div>
-      <div class="card" style="border-top:5px solid var(--blue)">
-        <h4 class="mb-2">🏦 Kebijakan Moneter</h4>
-        <p>Kebijakan bank sentral (BI) untuk mengatur <strong>jumlah uang beredar</strong>.</p>
-        <p class="mt-2"><strong>Alat:</strong></p>
-        <ul style="margin-left:20px">
-          <li>Suku bunga acuan (BI Rate)</li>
-          <li>Giro Wajib Minimum (GWM)</li>
-          <li>Operasi pasar terbuka</li>
-        </ul>
-        <p class="mt-2"><strong>Ekspansif:</strong> Turunkan suku bunga → kredit murah</p>
-        <p><strong>Kontraktif:</strong> Naikkan suku bunga → inflasi terkendali</p>
-      </div>
-    </div>
-    <div class="fact-card mt-4" style="background:var(--green)">
-      <p>Saat pandemi 2020, BI menurunkan BI Rate dari 4,75% menjadi 3,75%. Pemerintah juga menggelontorkan stimulus fiskal Rp695 triliun!</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ch7-interaktif" style="background:var(--cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--green)">Simulasi</div>
-    <h2 class="mb-3">️ Simulator <span style="color:var(--green)">Kebijakan Ekonomi</span></h2>
-    <p class="mb-3">Kamu sekarang Gubernur Bank Indonesia! Atur suku bunga dan lihat dampaknya.</p>
-    <div class="grid-2">
-      <div>
-        <div class="slider-container">
-          <label>🏦 Suku Bunga BI Rate: <span id="policyRate">5.0</span>%</label>
-          <input type="range" min="1" max="15" value="5" step="0.25" id="sliderPolicyRate" oninput="updatePolicySim()">
+    <!-- ============ REFERENSI ============ -->
+    <section class="section" id="refs" style="background: var(--light-cream)">
+      <div class="section-inner section-transition">
+        <div
+          class="chapter-number"
+          style="background: var(--dark); color: #fff"
+        >
+          Referensi
         </div>
-        <div class="slider-container">
-          <label>🏛️ Belanja Pemerintah: <span id="policyGovt">50</span>%</label>
-          <input type="range" min="10" max="90" value="50" step="5" id="sliderPolicyGovt" oninput="updatePolicySim()">
-        </div>
-        <button class="btn btn-green mt-3" onclick="runPolicySim()">🚀 Jalankan Simulasi</button>
-      </div>
-      <div>
-        <div class="card" id="policyResults" style="border-top:5px solid var(--green)">
-          <h4 class="mb-2">📊 Hasil Simulasi</h4>
-          <div class="mb-2"><span>📈 Inflasi: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugeInflation" style="width:40%;background:var(--coral)"></div><span class="gauge-label" id="gaugeLabelInflation">3.5%</span></div></div>
-          <div class="mb-2"><span>💼 Investasi: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugeInvestment" style="width:60%;background:var(--purple)"></div><span class="gauge-label" id="gaugeLabelInvestment">60%</span></div></div>
-          <div class="mb-2"><span>📊 Pertumbuhan: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugeGrowth" style="width:50%;background:var(--teal)"></div><span class="gauge-label" id="gaugeLabelGrowth">5.0%</span></div></div>
-          <div class="mb-2"><span>💰 Nilai Tukar: </span><div class="policy-gauge mt-1"><div class="gauge-fill" id="gaugeExchange" style="width:55%;background:var(--blue)"></div><span class="gauge-label" id="gaugeLabelExchange">15.000</span></div></div>
-        </div>
-        <div class="fact-card mt-3" id="policyFeedback" style="display:none;background:var(--teal)">
-          <p id="policyFeedbackText"></p>
+        <h2 class="mb-4">
+          Sumber & <span style="color: var(--dark)">Referensi</span>
+        </h2>
+        <p class="mb-3">
+          Materi dalam website ini disusun berdasarkan sumber-sumber berikut:
+        </p>
+        <ol class="ref-list" style="max-width: 700px">
+          <li>
+            Samuelson, P.A., & Nordhaus, W.D. (2018). <em>Economics</em> (22nd
+            ed.). McGraw-Hill Education.
+          </li>
+
+          <li>
+            Badan Pusat Statistik. (2024).
+            <em>Ekonomi Indonesia 2023 Tumbuh 5,05 Persen</em>.
+            https://www.bps.go.id
+          </li>
+
+          <li>
+            Bank Indonesia. (2024).
+            <em>Laporan Kebijakan Moneter Triwulan I 2024</em>.
+            https://www.bi.go.id
+          </li>
+
+          <li>
+            Kementerian Keuangan Republik Indonesia. (2024).
+            <em>APBN Kita 2024</em>. https://www.kemenkeu.go.id
+          </li>
+
+          <li>
+            World Bank. (2024). <em>Indonesia Economic Prospects</em>.
+            https://www.worldbank.org
+          </li>
+
+          <li>
+            Sukirno, S. (2016). <em>Makroekonomi: Teori Pengantar</em> (Edisi
+            Ketiga). PT Raja Grafindo Persada.
+          </li>
+
+          <li>
+            United Nations Development Programme. (2024).
+            <em>Human Development Report 2023/2024</em>. https://hdr.undp.org
+          </li>
+        </ol>
+        <div class="card mt-5" style="border-top: 5px solid var(--coral)">
+          <h4 class="mb-2">📝 Tentang Website Ini</h4>
+          <p>
+            SuperNeo adalah media pembelajaran ekonomi interaktif sebagai
+            website edukasi ilmu sosial. Materi disusun secara sistematis, mulai dari konsep dasar hingga topik lanjutan, dengan bahasa yang sederhana dan ilustrasi menarik untuk memudahkan pembaca memahami konsep-konsep ekonomi.
+          </p>
+          <!-- <p class="mt-2">Ilustrasi seluruhnya dibuat sebagai SVG inline — tidak ada gambar eksternal berhak cipta.</p> -->
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="ch7-summary" style="background:var(--dark);color:#fff">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--green)">Ringkasan</div>
-    <h2 class="mb-4">Chapter 7: Poin Kunci</h2>
-    <ul class="summary-list" style="max-width:600px">
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--green)">Kebijakan fiskal = pemerintah (pajak, belanja, APBN)</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--blue)">Kebijakan moneter = bank sentral (suku bunga)</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--coral)">Ekspansif = stimulus, Kontraktif = redam inflasi</li>
-      <li style="background:rgba(255,255,255,0.1);color:#fff;border-left-color:var(--yellow)">Kedua kebijakan harus berjalan beriringan</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ REFERENSI ============ -->
-<section class="section" id="refs" style="background:var(--light-cream)">
-  <div class="section-inner section-transition">
-    <div class="chapter-number" style="background:var(--dark);color:#fff">Referensi</div>
-    <h2 class="mb-4">Sumber & <span style="color:var(--dark)">Referensi</span></h2>
-    <p class="mb-3">Materi dalam website ini disusun berdasarkan sumber-sumber berikut:</p>
-    <ol class="ref-list" style="max-width:700px">
-      <li>Mankiw, N.G. (2020). <em>Principles of Economics</em>, 9th Edition. Cengage Learning.</li>
-      <li>Samuelson, P.A. & Nordhaus, W.D. (2018). <em>Economics</em>, 22nd Edition. McGraw-Hill.</li>
-      <li>Badan Pusat Statistik (BPS). (2024). <em>Data Pertumbuhan Ekonomi Indonesia</em>. www.bps.go.id</li>
-      <li>Bank Indonesia. (2024). <em>Laporan Kebijakan Moneter</em>. www.bi.go.id</li>
-      <li>Kementerian Keuangan RI. (2024). <em>APBN dan Kebijakan Fiskal</em>. www.kemenkeu.go.id</li>
-      <li>World Bank. (2024). <em>Indonesia Economic Prospects</em>. www.worldbank.org</li>
-      <li>Sukirno, S. (2016). <em>Makroekonomi: Teori Pengantar</em>, Edisi Ketiga. PT Raja Grafindo Persada.</li>
-      <li>UNDP Human Development Reports. www.hdr.undp.org</li>
-    </ol>
-    <div class="card mt-5" style="border-top:5px solid var(--coral)">
-      <h4 class="mb-2">📝 Tentang Website Ini</h4>
-      <p>SuperNeo adalah media pembelajaran ekonomi interaktif untuk lomba website edukasi ilmu sosial. Dibangun dengan HTML, CSS, dan JavaScript murni tanpa framework.</p>
-      <!-- <p class="mt-2">Ilustrasi seluruhnya dibuat sebagai SVG inline — tidak ada gambar eksternal berhak cipta.</p> -->
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px">
-    <div>
-      <h3 style="font-size:0.9rem;margin-bottom:16px">📊 Super<span style="color:var(--coral)">Neo</span></h3>
-      <p class="small-text">Media Pembelajaran Ekonomi Interaktif — Dari Dasar Hingga Advance yang sederhana nan menarik</p>
-    </div>
-    <div>
-      <h4 class="mb-2">Chapter</h4>
-      <ul style="list-style:none;padding:0">
-        <li><a href="#ch0" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 0 — Apa Itu Ekonomi?</a></li>
-        <li><a href="#ch1" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 1 — Kelangkaan</a></li>
-        <li><a href="#ch2" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 2 — Supply & Demand</a></li>
-        <li><a href="#ch3" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 3 — Harga & Pasar</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="mb-2">Lanjutan</h4>
-      <ul style="list-style:none;padding:0">
-        <li><a href="#ch4" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 4 — Uang & Inflasi</a></li>
-        <li><a href="#ch5" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 5 — Sistem Ekonomi</a></li>
-        <li><a href="#ch6" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 6 — Pendapatan Nasional</a></li>
-        <li><a href="#ch7" style="color:#fff;text-decoration:none;font-size:0.85rem">Ch 7 — Kebijakan</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="mb-2">Info</h4>
-      <ul style="list-style:none;padding:0">
-        <li><a href="#refs" style="color:#fff;text-decoration:none;font-size:0.85rem">Referensi</a></li>
-      </ul>
-      <p class="small-text mt-3">© 2026 SuperNeo.</p>
-    </div>
-  </div>
-</footer>
-<script src="script.js"></script>
-</body>
+    <footer class="footer">
+      <div
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 32px;
+        "
+      >
+        <div>
+          <h3 style="font-size: 0.9rem; margin-bottom: 16px">
+            📊 Super<span style="color: var(--coral)">Neo</span>
+          </h3>
+          <p class="small-text">
+            Media Pembelajaran Ekonomi Interaktif — Dari Dasar Hingga Lanjutan, dengan bahasa
+            yang sederhana nan menarik
+          </p>
+        </div>
+        <div>
+          <h4 class="mb-2">Chapter</h4>
+          <ul style="list-style: none; padding: 0">
+            <li>
+              <a
+                href="#ch0"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 0 — Apa Itu Ekonomi?</a
+              >
+            </li>
+            <li>
+              <a
+                href="#ch1"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 1 — Kelangkaan</a
+              >
+            </li>
+            <li>
+              <a
+                href="#ch2"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 2 — Supply & Demand</a
+              >
+            </li>
+            <li>
+              <a
+                href="#ch3"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 3 — Harga & Pasar</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mb-2">Lanjutan</h4>
+          <ul style="list-style: none; padding: 0">
+            <li>
+              <a
+                href="#ch4"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 4 — Uang & Inflasi</a
+              >
+            </li>
+            <li>
+              <a
+                href="#ch5"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 5 — Sistem Ekonomi</a
+              >
+            </li>
+            <li>
+              <a
+                href="#ch6"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 6 — Pendapatan Nasional</a
+              >
+            </li>
+            <li>
+              <a
+                href="#ch7"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Ch 7 — Kebijakan</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mb-2">Info</h4>
+          <ul style="list-style: none; padding: 0">
+            <li>
+              <a
+                href="#refs"
+                style="color: #fff; text-decoration: none; font-size: 0.85rem"
+                >Referensi</a
+              >
+            </li>
+          </ul>
+          <p class="small-text mt-3">© 2026 SuperNeo.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
