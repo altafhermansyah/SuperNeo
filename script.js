@@ -19,11 +19,11 @@ const inflationData = {
 const gdpData = {
   years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
   growth: [4.88, 5.02, 5.07, 5.17, 5.02, -2.07, 3.69, 5.31, 5.05],
-  gdp: [12.4, 13.3, 14.3, 15.3, 16.2, 15.4, 16.7, 18.5, 20.0],
-  percapita: [47.8, 51.0, 54.2, 57.4, 60.1, 57.2, 61.8, 67.9, 73.0]
+  gdp: [11.5, 12.4, 13.5, 14.8, 15.8, 15.4, 16.9, 19.5, 20.8],
+  percapita: [45.2, 47.9, 51.9, 56.0, 59.1, 56.9, 62.2, 71.0, 75.0]
 };
 
-const gdpLabels = { growth: 'Pertumbuhan Ekonomi (%)', gdp: 'GDP (Triliun Rp)', percapita: 'PDB Per Kapita (Juta Rp)' };
+const gdpLabels = { growth: 'Pertumbuhan Ekonomi (%)', gdp: 'GDP (Ribu triliun Rp)', percapita: 'PDB Per Kapita (Juta Rp)' };
 
 // ===== NAVIGATION =====
 function toggleMobileMenu() {
@@ -494,7 +494,7 @@ function showGDPDetail(year, value) {
       else if (value < 3) text += '  Pertumbuhan melambat, biasanya akibat faktor internal atau global.';
       break;
     case 'gdp':
-      text = `Tahun ${year}: GDP Indonesia mencapai Rp${value} triliun.`;
+      text = `Tahun ${year}: GDP Indonesia mencapai Rp${value} ribu triliun.`;
       if (year === 2023) text += ' 🏆 GDP tertinggi sepanjang sejarah Indonesia!';
       break;
     case 'percapita':
